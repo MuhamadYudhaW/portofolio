@@ -1,1399 +1,1620 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================================
+   RESET & GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #0b1120;
+    color: #f8fafc;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 110px 0;
+    position: relative;
+}
+
+::selection {
+    background: #38bdf8;
+    color: #0b1120;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1120;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 20px;
+}
 
-    <meta
-        name="description"
-        content="Portfolio Muhamad Yudha Waningpati — Digital Administration, Data Management, Data Analysis, and HR Support."
-    >
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
 
-    <meta name="theme-color" content="#0b1220">
 
-    <title>Muhamad Yudha Waningpati | Portfolio</title>
+/* =========================================================
+   NAVBAR
+========================================================= */
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    background: rgba(11, 17, 32, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-</head>
+    transition: 0.3s ease;
+}
 
-<body>
+.navbar.scrolled {
+    background: rgba(11, 17, 32, 0.95);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
 
-    <!-- Scroll Progress -->
-    <div class="scroll-progress"></div>
+.nav-container {
+    min-height: 75px;
 
-    <!-- Background Particles -->
-    <div class="particles" aria-hidden="true"></div>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+.logo span {
+    color: #38bdf8;
+}
 
-    <nav class="navbar" aria-label="Navigasi utama">
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
 
-        <div class="container nav-container">
+.nav-link {
+    position: relative;
 
-            <!-- Logo -->
-            <a href="#home" class="logo">
-                MYW<span>.</span>
-            </a>
+    font-size: 0.85rem;
+    font-weight: 500;
 
-            <!-- Mobile Menu Button -->
-            <button
-                class="hamburger"
-                aria-label="Buka menu"
-                aria-expanded="false"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    color: #94a3b8;
 
-            <!-- Navigation Links -->
-            <ul class="nav-links">
+    transition: color 0.3s ease;
+}
 
-                <li>
-                    <a href="#home">Home</a>
-                </li>
+.nav-link:hover,
+.nav-link.active {
+    color: #f8fafc;
+}
 
-                <li>
-                    <a href="#about">About</a>
-                </li>
+.nav-link::after {
+    content: "";
 
-                <li>
-                    <a href="#experience">Experience</a>
-                </li>
+    position: absolute;
+    left: 0;
+    bottom: -8px;
 
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
+    width: 0;
+    height: 2px;
 
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
+    background: #38bdf8;
 
-                <li>
-                    <a href="#certifications">Certifications</a>
-                </li>
+    transition: width 0.3s ease;
+}
 
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
 
-            </ul>
+.menu-toggle {
+    display: none;
 
-        </div>
+    width: 42px;
+    height: 42px;
 
-    </nav>
+    border: 1px solid #334155;
+    border-radius: 10px;
 
+    background: transparent;
 
-    <main>
+    cursor: pointer;
 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
 
-        <!-- =========================================
-             HERO
-        ========================================== -->
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
 
-        <section id="home" class="hero section-pad">
+    background: #f8fafc;
 
-            <div class="hero-glow"></div>
+    transition: 0.3s ease;
+}
 
-            <div class="container hero-grid">
 
+/* =========================================================
+   HERO
+========================================================= */
 
-                <!-- HERO CONTENT -->
+.hero {
+    min-height: 100vh;
 
-                <div class="hero-content reveal">
+    position: relative;
 
-                    <p class="eyebrow">
-                        <span></span>
-                        Open to opportunities
-                    </p>
+    display: flex;
+    align-items: center;
 
-                    <p class="greeting">
-                        Halo, saya
-                    </p>
+    overflow: hidden;
 
-                    <h1>
-                        Muhamad Yudha
-                        <strong>Waningpati</strong>
-                    </h1>
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(56, 189, 248, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(59, 130, 246, 0.08),
+            transparent 30%
+        );
+}
 
-                    <!-- Typing Animation -->
-                    <div class="typing-line">
-                        <span class="typing-text"></span>
-                        <span class="cursor">|</span>
-                    </div>
+.hero-container {
+    display: grid;
 
-                    <p class="hero-desc">
-                        Mahasiswa D4 Administrasi Perkantoran Digital
-                        di Universitas Negeri Jakarta dengan minat pada
-                        administrasi digital, data management, data analysis,
-                        dan HR support.
-                    </p>
+    grid-template-columns: 1.2fr 0.8fr;
 
+    gap: 80px;
 
-                    <!-- HERO BUTTONS -->
+    align-items: center;
 
-                    <div class="hero-buttons">
+    padding-top: 75px;
+}
 
-                        <a
-                            href="#contact"
-                            class="btn btn-primary magnetic"
-                        >
-                            Hubungi Saya
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+.hero-label,
+.section-label {
+    display: inline-block;
 
-                        <a
-                            href="#experience"
-                            class="btn btn-outline magnetic"
-                        >
-                            Lihat Pengalaman
-                        </a>
+    margin-bottom: 15px;
 
-                    </div>
+    color: #38bdf8;
 
+    font-size: 0.75rem;
+    font-weight: 700;
 
-                    <!-- SOCIAL LINKS -->
+    letter-spacing: 3px;
+}
 
-                    <div class="hero-socials">
+.hero h1 {
+    max-width: 750px;
 
-                        <a
-                            href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
-                            target="_blank"
-                            rel="noopener"
-                            aria-label="LinkedIn"
-                        >
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+    font-size: clamp(3rem, 6vw, 5.5rem);
 
-                        <a
-                            href="mailto:muhamadyudhawaningpati@gmail.com"
-                            aria-label="Email"
-                        >
-                            <i class="fas fa-envelope"></i>
-                        </a>
+    line-height: 1.02;
 
-                        <a
-                            href="https://wa.me/628961702404"
-                            target="_blank"
-                            rel="noopener"
-                            aria-label="WhatsApp"
-                        >
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+    letter-spacing: -4px;
 
-                    </div>
+    font-weight: 800;
+}
 
-                </div>
+.hero h1 span {
+    display: block;
+    color: #38bdf8;
+}
 
+.typing-wrapper {
+    margin-top: 25px;
 
-                <!-- HERO VISUAL -->
+    min-height: 35px;
 
-                <div class="hero-visual reveal">
+    font-size: 1.25rem;
+    font-weight: 600;
 
-                    <div class="orbit orbit-one"></div>
-                    <div class="orbit orbit-two"></div>
+    color: #cbd5e1;
+}
 
+.cursor {
+    color: #38bdf8;
 
-                    <!-- PROFILE CARD -->
+    animation: blink 0.8s infinite;
+}
 
-                    <div class="profile-card glow-card">
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
 
-                        <div class="profile-top">
-                            <span>PORTFOLIO</span>
-                            <span>2026</span>
-                        </div>
+.hero-description {
+    max-width: 650px;
 
+    margin-top: 25px;
 
-                        <div class="profile-avatar">
-                            MYW
-                        </div>
+    color: #94a3b8;
 
+    font-size: 1rem;
+}
 
-                        <h2>
-                            Digital Administration
-                        </h2>
+.hero-buttons {
+    display: flex;
 
+    gap: 15px;
 
-                        <p>
-                            Data Management · Data Analysis · HR Support
-                        </p>
+    margin-top: 35px;
+}
 
+.btn {
+    display: inline-flex;
 
-                        <!-- PROFILE STATS -->
+    align-items: center;
+    justify-content: center;
 
-                        <div class="profile-stats">
+    min-height: 48px;
 
-                            <div>
-                                <strong>3.71</strong>
-                                <span>GPA</span>
-                            </div>
+    padding: 0 24px;
 
-                            <div>
-                                <strong>90+</strong>
-                                <span>Archive Boxes</span>
-                            </div>
+    border-radius: 10px;
 
-                            <div>
-                                <strong>2</strong>
-                                <span>Internship Roles</span>
-                            </div>
+    font-size: 0.85rem;
+    font-weight: 700;
 
-                        </div>
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
 
-                    </div>
+.btn:hover {
+    transform: translateY(-3px);
+}
 
-                </div>
+.btn-primary {
+    background: #38bdf8;
+    color: #0b1120;
 
-            </div>
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+}
 
-        </section>
+.btn-primary:hover {
+    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
+}
 
+.btn-secondary {
+    border: 1px solid #334155;
 
+    color: #f8fafc;
 
-        <!-- =========================================
-             ABOUT
-        ========================================== -->
+    background: rgba(30, 41, 59, 0.4);
+}
 
-        <section
-            id="about"
-            class="section-pad section-dark"
-        >
+.btn-secondary:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+}
 
-            <div class="container">
+.social-links {
+    display: flex;
 
+    gap: 20px;
 
-                <div class="section-heading reveal">
+    margin-top: 30px;
+}
 
-                    <span class="section-label">
-                        01 — ABOUT
-                    </span>
+.social-links a {
+    color: #64748b;
 
-                    <h2>
-                        Administrasi yang bertemu
-                        <span>data & teknologi.</span>
-                    </h2>
+    font-size: 0.8rem;
+    font-weight: 600;
 
-                </div>
+    transition: color 0.3s ease;
+}
 
+.social-links a:hover {
+    color: #38bdf8;
+}
 
-                <div class="about-grid">
 
+/* =========================================================
+   PROFILE CARD
+========================================================= */
 
-                    <!-- ABOUT MAIN -->
+.hero-card {
+    display: flex;
+    justify-content: center;
+}
 
-                    <div class="about-main glass-card reveal">
+.profile-card {
+    width: 100%;
+    max-width: 370px;
 
-                        <div class="icon-box">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
+    padding: 40px;
 
-                        <h3>
-                            Profile
-                        </h3>
+    position: relative;
 
-                        <p>
-                            Saya adalah mahasiswa D4 Administrasi
-                            Perkantoran Digital Universitas Negeri Jakarta
-                            yang tertarik mengembangkan kemampuan di bidang
-                            administrasi, pengelolaan data, analisis data,
-                            dan dukungan HR.
-                        </p>
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 25px;
 
-                        <p>
-                            Pengalaman magang mempertemukan saya dengan
-                            pekerjaan pengarsipan, data entry, verifikasi
-                            data, dan pengelolaan informasi digital.
-                            Saat ini saya memperluas kemampuan melalui
-                            pembelajaran Excel tingkat lanjut, SQL,
-                            Python, Pandas, Matplotlib, dan visualisasi data.
-                        </p>
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 41, 59, 0.8),
+            rgba(15, 23, 42, 0.8)
+        );
 
-                    </div>
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.3);
 
+    overflow: hidden;
+}
 
-                    <!-- ABOUT SIDE -->
+.profile-card::before {
+    content: "";
 
-                    <div class="about-side reveal">
+    position: absolute;
 
+    top: -100px;
+    right: -100px;
 
-                        <div class="mini-card glass-card">
+    width: 220px;
+    height: 220px;
 
-                            <i class="fas fa-graduation-cap"></i>
+    background: rgba(56, 189, 248, 0.12);
 
-                            <div>
+    border-radius: 50%;
 
-                                <small>
-                                    Education
-                                </small>
+    filter: blur(10px);
+}
 
-                                <strong>
-                                    D4 Administrasi Perkantoran Digital
-                                </strong>
+.profile-avatar {
+    width: 100px;
+    height: 100px;
 
-                                <span>
-                                    Universitas Negeri Jakarta
-                                </span>
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                            </div>
+    margin-bottom: 25px;
 
-                        </div>
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 50%;
 
+    background: rgba(56, 189, 248, 0.08);
 
-                        <div class="mini-card glass-card">
+    color: #38bdf8;
 
-                            <i class="fas fa-star"></i>
+    font-size: 1.5rem;
+    font-weight: 800;
+}
 
-                            <div>
+.profile-role {
+    color: #38bdf8;
 
-                                <small>
-                                    Academic
-                                </small>
+    font-size: 0.75rem;
+    font-weight: 700;
 
-                                <strong>
-                                    GPA 3.71
-                                </strong>
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 
-                                <span>
-                                    Current academic achievement
-                                </span>
+.profile-card h2 {
+    margin-top: 8px;
 
-                            </div>
+    font-size: 1.5rem;
+}
 
-                        </div>
+.profile-card > p:not(.profile-role) {
+    margin-top: 15px;
 
+    color: #94a3b8;
 
-                        <div class="mini-card glass-card">
+    font-size: 0.9rem;
+}
 
-                            <i class="fas fa-location-dot"></i>
+.profile-stats {
+    display: grid;
 
-                            <div>
+    grid-template-columns: repeat(3, 1fr);
 
-                                <small>
-                                    Preferred Area
-                                </small>
+    gap: 15px;
 
-                                <strong>
-                                    Jakarta
-                                </strong>
+    margin-top: 30px;
 
-                                <span>
-                                    East · North · Central · South
-                                </span>
+    padding-top: 25px;
 
-                            </div>
+    border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
 
-                        </div>
+.profile-stats div {
+    display: flex;
 
+    flex-direction: column;
 
-                    </div>
+    gap: 3px;
+}
 
-                </div>
+.profile-stats strong {
+    font-size: 1.25rem;
+}
 
-            </div>
+.profile-stats span {
+    color: #64748b;
 
-        </section>
+    font-size: 0.65rem;
+}
 
 
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
 
-        <!-- =========================================
-             EXPERIENCE
-        ========================================== -->
+.scroll-indicator {
+    position: absolute;
 
-        <section
-            id="experience"
-            class="section-pad"
-        >
+    bottom: 30px;
+    left: 50%;
 
-            <div class="container">
+    transform: translateX(-50%);
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-                <div class="section-heading reveal">
+    gap: 5px;
 
-                    <span class="section-label">
-                        02 — EXPERIENCE
-                    </span>
+    color: #475569;
 
-                    <h2>
-                        Pengalaman yang membentuk
-                        <span>cara kerja saya.</span>
-                    </h2>
+    font-size: 0.65rem;
 
-                </div>
+    letter-spacing: 1px;
+}
 
+.scroll-arrow {
+    color: #38bdf8;
 
-                <div class="timeline">
+    font-size: 1rem;
 
+    animation: bounce 1.5s infinite;
+}
 
-                    <!-- OACTION -->
+@keyframes bounce {
+    50% {
+        transform: translateY(5px);
+    }
+}
 
-                    <article class="timeline-item reveal">
 
-                        <div class="timeline-marker">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+/* =========================================================
+   SECTION HEADING
+========================================================= */
 
+.section-heading {
+    max-width: 750px;
 
-                        <div class="timeline-content glass-card">
+    margin-bottom: 60px;
+}
 
-                            <div class="timeline-meta">
-                                <span>2026</span>
-                                <span>Organization / Event</span>
-                            </div>
+.section-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
 
+    line-height: 1.1;
 
-                            <h3>
-                                Coordinator — Graphic Design Competition
-                                & Data Management
-                            </h3>
+    letter-spacing: -2px;
+}
 
-                            <h4>
-                                OACTION ASPAPI
-                            </h4>
+.section-heading h2 span {
+    color: #38bdf8;
+}
 
+.section-heading > p:last-child {
+    max-width: 650px;
 
-                            <p>
-                                Mengoordinasikan pengelolaan data dan
-                                pelaksanaan kompetisi desain grafis dari
-                                tahap persiapan hingga pelaksanaan.
-                            </p>
+    margin-top: 20px;
 
+    color: #94a3b8;
+}
 
-                            <ul>
 
-                                <li>
-                                    Mengelola 100 peserta online,
-                                    36 peserta offline, dan 10 finalis.
-                                </li>
+/* =========================================================
+   ABOUT
+========================================================= */
 
-                                <li>
-                                    Menyusun SOP perlombaan dan membantu
-                                    memastikan alur pelaksanaan berjalan
-                                    sesuai ketentuan.
-                                </li>
+.about {
+    background: #0f172a;
+}
 
-                                <li>
-                                    Memberikan supervisi dan feedback
-                                    terhadap pelaksanaan kegiatan serta
-                                    membantu monitoring keamanan kompetisi.
-                                </li>
+.about-grid {
+    display: grid;
 
-                            </ul>
+    grid-template-columns: 1.2fr 0.8fr;
 
+    gap: 70px;
+}
 
-                            <div class="tags">
+.about-text {
+    color: #94a3b8;
+}
 
-                                <span>Excel</span>
-                                <span>SQL</span>
-                                <span>PowerPoint</span>
-                                <span>Canva</span>
+.about-text p + p {
+    margin-top: 20px;
+}
 
-                            </div>
+.about-info {
+    display: grid;
 
-                        </div>
+    gap: 15px;
+}
 
-                    </article>
+.info-card {
+    padding: 22px;
 
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 15px;
 
+    background: rgba(30, 41, 59, 0.4);
 
-                    <!-- FINANCIAL ARCHIVIST -->
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
-                    <article class="timeline-item reveal">
+.info-card:hover {
+    transform: translateY(-4px);
 
-                        <div class="timeline-marker">
-                            <i class="fas fa-folder-open"></i>
-                        </div>
+    border-color: rgba(56, 189, 248, 0.4);
+}
 
+.info-card span {
+    display: block;
 
-                        <div class="timeline-content glass-card">
+    margin-bottom: 5px;
 
-                            <div class="timeline-meta">
-                                <span>January — May</span>
-                                <span>Internship</span>
-                            </div>
+    color: #64748b;
 
+    font-size: 0.7rem;
+    font-weight: 700;
 
-                            <h3>
-                                Financial Archivist
-                            </h3>
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
+.info-card strong {
+    font-size: 1rem;
+}
 
-                            <h4>
-                                BPJS Ketenagakerjaan
-                                Cabang Rawamangun
-                            </h4>
+.info-card p {
+    margin-top: 4px;
 
+    color: #94a3b8;
 
-                            <p>
-                                Berfokus pada pengelolaan dan penataan
-                                arsip keuangan agar lebih terstruktur
-                                dan mudah ditelusuri.
-                            </p>
+    font-size: 0.8rem;
+}
 
 
-                            <ul>
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
-                                <li>
-                                    Mengelola arsip keuangan tahun 2025.
-                                </li>
+.timeline {
+    position: relative;
 
-                                <li>
-                                    Menangani sekitar 90 box arsip.
-                                </li>
+    max-width: 900px;
 
-                                <li>
-                                    Membuat daftar arsip untuk mendukung
-                                    proses pencarian dan pengendalian
-                                    dokumen.
-                                </li>
+    margin: 0 auto;
+}
 
-                            </ul>
+.timeline::before {
+    content: "";
 
+    position: absolute;
 
-                            <div class="tags">
+    top: 0;
+    bottom: 0;
 
-                                <span>Microsoft Excel</span>
-                                <span>Microsoft Word</span>
-                                <span>Archiving</span>
+    left: 10px;
 
-                            </div>
+    width: 1px;
 
-                        </div>
+    background: #334155;
+}
 
-                    </article>
+.timeline-item {
+    position: relative;
 
+    padding-left: 55px;
 
+    padding-bottom: 60px;
+}
 
-                    <!-- DATA ENTRY -->
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
 
-                    <article class="timeline-item reveal">
+.timeline-dot {
+    position: absolute;
 
-                        <div class="timeline-marker">
-                            <i class="fas fa-database"></i>
-                        </div>
+    top: 5px;
+    left: 3px;
 
+    width: 15px;
+    height: 15px;
 
-                        <div class="timeline-content glass-card">
+    border: 3px solid #0b1120;
+    border-radius: 50%;
 
-                            <div class="timeline-meta">
-                                <span>June — September</span>
-                                <span>Internship</span>
-                            </div>
+    background: #38bdf8;
 
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+}
 
-                            <h3>
-                                Data Entry Specialist
-                            </h3>
+.timeline-content {
+    padding: 30px;
 
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 18px;
 
-                            <h4>
-                                BPJS Ketenagakerjaan
-                                Cabang Rawamangun
-                            </h4>
+    background: rgba(30, 41, 59, 0.35);
 
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
-                            <p>
-                                Berfokus pada data entry, verifikasi,
-                                dan pengelolaan arsip digital untuk
-                                mendukung keteraturan data.
-                            </p>
+.timeline-content:hover {
+    transform: translateX(5px);
 
+    border-color: rgba(56, 189, 248, 0.35);
+}
 
-                            <ul>
+.timeline-date {
+    display: inline-block;
 
-                                <li>
-                                    Membuat dan memverifikasi arsip
-                                    dalam 5 kategori pada data tahun 2025.
-                                </li>
+    margin-bottom: 10px;
 
-                                <li>
-                                    Mengelola data digital dan melakukan
-                                    verifikasi terhadap data tahun 2025.
-                                </li>
+    color: #38bdf8;
 
-                                <li>
-                                    Membuat dashboard untuk membantu
-                                    proses pencarian arsip.
-                                </li>
+    font-size: 0.7rem;
+    font-weight: 700;
 
-                            </ul>
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
+.timeline-content h3 {
+    font-size: 1.25rem;
 
-                            <div class="tags">
+    line-height: 1.3;
+}
 
-                                <span>Excel</span>
-                                <span>Word</span>
-                                <span>Data Entry</span>
-                                <span>Data Management</span>
+.timeline-content h4 {
+    margin-top: 5px;
 
-                            </div>
+    color: #64748b;
 
-                        </div>
+    font-size: 0.85rem;
+}
 
-                    </article>
+.timeline-content > p {
+    margin-top: 15px;
 
+    color: #94a3b8;
 
-                </div>
+    font-size: 0.9rem;
+}
 
-            </div>
+.timeline-content ul {
+    margin-top: 18px;
 
-        </section>
+    padding-left: 20px;
 
+    color: #94a3b8;
 
+    font-size: 0.85rem;
+}
 
-        <!-- =========================================
-             PROJECTS
-        ========================================== -->
+.timeline-content li + li {
+    margin-top: 8px;
+}
 
-        <section
-            id="projects"
-            class="section-pad section-dark"
-        >
 
-            <div class="container">
+/* =========================================================
+   TAGS
+========================================================= */
 
+.tags,
+.project-tags {
+    display: flex;
 
-                <div class="section-heading reveal">
+    flex-wrap: wrap;
 
-                    <span class="section-label">
-                        03 — PROJECTS
-                    </span>
+    gap: 8px;
 
-                    <h2>
-                        Belajar dengan
-                        <span>mengerjakan.</span>
-                    </h2>
+    margin-top: 20px;
+}
 
-                    <p>
-                        Project latihan dan pembelajaran yang menunjukkan
-                        proses pengembangan kemampuan data.
-                    </p>
+.tags span,
+.project-tags span {
+    padding: 5px 10px;
 
-                </div>
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 6px;
 
+    background: rgba(56, 189, 248, 0.06);
 
-                <div class="project-grid">
+    color: #7dd3fc;
 
+    font-size: 0.65rem;
+    font-weight: 600;
+}
 
-                    <!-- PROJECT 1 -->
 
-                    <article class="project-card glass-card reveal">
+/* =========================================================
+   PROJECTS
+========================================================= */
 
-                        <div class="project-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
+.projects {
+    background: #0f172a;
+}
 
-                        <span class="project-type">
-                            SQL Practice
-                        </span>
+.project-grid {
+    display: grid;
 
-                        <h3>
-                            Customer Retention & Cohort
-                        </h3>
+    grid-template-columns: repeat(2, 1fr);
 
-                        <p>
-                            Menggunakan SQL untuk memahami customer
-                            retention melalui konsep retention cohort
-                            dan aktivitas customer berdasarkan periode
-                            transaksi.
-                        </p>
+    gap: 20px;
+}
 
-                        <div class="tags">
-                            <span>SQL</span>
-                            <span>Retention</span>
-                            <span>Cohort</span>
-                        </div>
+.project-card {
+    min-height: 310px;
 
-                    </article>
+    padding: 30px;
 
+    position: relative;
 
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 20px;
 
-                    <!-- PROJECT 2 -->
+    background: rgba(30, 41, 59, 0.35);
 
-                    <article class="project-card glass-card reveal">
+    overflow: hidden;
 
-                        <div class="project-icon">
-                            <i class="fas fa-chart-column"></i>
-                        </div>
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
-                        <span class="project-type">
-                            Data Analysis
-                        </span>
+.project-card:hover {
+    transform: translateY(-7px);
 
-                        <h3>
-                            Retail & Sales Analysis
-                        </h3>
+    border-color: rgba(56, 189, 248, 0.4);
+}
 
-                        <p>
-                            Menganalisis data penjualan untuk menemukan
-                            pola transaksi, top brand, metode pembayaran,
-                            basket size, dan metrik operasional lainnya.
-                        </p>
+.project-number {
+    position: absolute;
 
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
-                        </div>
+    top: 25px;
+    right: 25px;
 
-                    </article>
+    color: #334155;
 
+    font-size: 0.8rem;
+    font-weight: 800;
+}
 
+.project-icon {
+    width: 55px;
+    height: 55px;
 
-                    <!-- PROJECT 3 -->
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                    <article class="project-card glass-card reveal">
+    margin-bottom: 30px;
 
-                        <div class="project-icon">
-                            <i class="fas fa-table"></i>
-                        </div>
+    border-radius: 12px;
 
-                        <span class="project-type">
-                            Excel / Data Management
-                        </span>
+    background: rgba(56, 189, 248, 0.08);
 
-                        <h3>
-                            Archive Data Management
-                        </h3>
+    color: #38bdf8;
 
-                        <p>
-                            Menerapkan pengelolaan data dan arsip
-                            menggunakan spreadsheet, termasuk penataan
-                            data, pencarian informasi, dan penyajian
-                            dashboard.
-                        </p>
+    font-size: 0.8rem;
+    font-weight: 800;
+}
 
-                        <div class="tags">
-                            <span>Excel</span>
-                            <span>Pivot</span>
-                            <span>Dashboard</span>
-                        </div>
+.project-card h3 {
+    font-size: 1.2rem;
+}
 
-                    </article>
+.project-card > p {
+    margin-top: 12px;
 
+    color: #94a3b8;
 
-                </div>
+    font-size: 0.85rem;
+}
 
-            </div>
 
-        </section>
+/* =========================================================
+   SKILLS
+========================================================= */
 
+.skills-grid {
+    display: grid;
 
+    grid-template-columns: repeat(2, 1fr);
 
-        <!-- =========================================
-             SKILLS
-        ========================================== -->
+    gap: 20px;
+}
 
-        <section
-            id="skills"
-            class="section-pad"
-        >
+.skill-card {
+    padding: 30px;
 
-            <div class="container">
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 20px;
 
+    background: rgba(30, 41, 59, 0.35);
 
-                <div class="section-heading reveal">
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
-                    <span class="section-label">
-                        04 — SKILLS
-                    </span>
+.skill-card:hover {
+    transform: translateY(-5px);
 
-                    <h2>
-                        Tools yang saya gunakan untuk
-                        <span>bekerja & belajar.</span>
-                    </h2>
+    border-color: rgba(56, 189, 248, 0.35);
+}
 
-                </div>
+.skill-header {
+    display: flex;
 
+    align-items: center;
 
-                <div class="skills-layout">
+    gap: 15px;
 
+    padding-bottom: 20px;
 
-                    <!-- DATA -->
+    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
 
-                    <div class="skill-group glass-card reveal">
+.skill-icon {
+    width: 45px;
+    height: 45px;
 
-                        <div class="skill-title">
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                            <i class="fas fa-chart-simple"></i>
+    border-radius: 10px;
 
-                            <h3>
-                                Data & Analytics
-                            </h3>
+    background: rgba(56, 189, 248, 0.08);
 
-                        </div>
+    color: #38bdf8;
 
+    font-size: 0.6rem;
+    font-weight: 800;
+}
 
-                        <div class="skill-list">
+.skill-header h3 {
+    font-size: 1rem;
+}
 
-                            <span>Excel</span>
-                            <span>SQL</span>
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
-                            <span>Data Visualization</span>
+.skill-list {
+    margin-top: 20px;
+}
 
-                        </div>
+.skill-item {
+    display: flex;
 
+    justify-content: space-between;
+    align-items: center;
 
-                        <p class="skill-note">
-                            Excel sudah dipelajari dari basic hingga
-                            expert, termasuk Pivot dan Power Pivot.
-                            Kemampuan data analyst terus dikembangkan.
-                        </p>
+    padding: 11px 0;
 
-                    </div>
+    border-bottom: 1px solid rgba(148, 163, 184, 0.05);
 
+    font-size: 0.8rem;
+}
 
+.skill-item:last-child {
+    border-bottom: none;
+}
 
-                    <!-- OFFICE -->
+.skill-level {
+    color: #38bdf8;
 
-                    <div class="skill-group glass-card reveal">
+    font-size: 0.65rem;
+    font-weight: 600;
+}
 
-                        <div class="skill-title">
+.skill-level.developing {
+    color: #94a3b8;
+}
 
-                            <i class="fas fa-briefcase"></i>
 
-                            <h3>
-                                Office & Administration
-                            </h3>
+/* =========================================================
+   CERTIFICATIONS
+========================================================= */
 
-                        </div>
+.certification-group + .certification-group {
+    margin-top: 70px;
+}
 
+.certification-group-title {
+    display: flex;
 
-                        <div class="skill-list">
+    align-items: center;
 
-                            <span>Word</span>
-                            <span>PowerPoint</span>
-                            <span>Google Docs</span>
-                            <span>Google Sheets</span>
-                            <span>Data Management</span>
-                            <span>Archiving</span>
+    gap: 15px;
 
-                        </div>
+    margin-bottom: 25px;
+}
 
-                    </div>
+.certification-group-title > span {
+    color: #38bdf8;
 
+    font-size: 0.7rem;
+    font-weight: 800;
+}
 
+.certification-group-title h3 {
+    font-size: 1.2rem;
+}
 
-                    <!-- DESIGN -->
+.certification-grid {
+    display: grid;
 
-                    <div class="skill-group glass-card reveal">
+    grid-template-columns: repeat(3, 1fr);
 
-                        <div class="skill-title">
+    gap: 15px;
+}
 
-                            <i class="fas fa-pen-nib"></i>
+.certification-card {
+    display: flex;
 
-                            <h3>
-                                Design & Content
-                            </h3>
+    align-items: center;
 
-                        </div>
+    gap: 15px;
 
+    min-height: 110px;
 
-                        <div class="skill-list">
+    padding: 20px;
 
-                            <span>Canva</span>
-                            <span>Figma</span>
-                            <span>CapCut</span>
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 15px;
 
-                        </div>
+    background: rgba(30, 41, 59, 0.35);
 
-                    </div>
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
+.certification-card:hover {
+    transform: translateY(-4px);
 
+    border-color: rgba(56, 189, 248, 0.35);
+}
 
-                    <!-- AI -->
+.certification-logo {
+    min-width: 45px;
+    height: 45px;
 
-                    <div class="skill-group glass-card reveal">
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-                        <div class="skill-title">
+    border-radius: 10px;
 
-                            <i class="fas fa-robot"></i>
+    background: rgba(56, 189, 248, 0.08);
 
-                            <h3>
-                                AI Tools
-                            </h3>
+    color: #38bdf8;
 
-                        </div>
+    font-size: 0.7rem;
+    font-weight: 800;
+}
 
+.certification-card h4 {
+    font-size: 0.85rem;
+}
 
-                        <div class="skill-list">
+.certification-card p {
+    color: #94a3b8;
 
-                            <span>ChatGPT</span>
-                            <span>Gemini</span>
-                            <span>Claude</span>
+    font-size: 0.7rem;
+}
 
-                        </div>
+.certification-card span {
+    display: block;
 
-                    </div>
+    margin-top: 3px;
 
+    color: #64748b;
 
-                </div>
+    font-size: 0.6rem;
+}
 
-            </div>
 
-        </section>
+/* =========================================================
+   CURRENTLY PURSUING
+========================================================= */
 
+.pursuing-card {
+    position: relative;
 
+    padding: 35px;
 
-        <!-- =========================================
-             CERTIFICATIONS
-        ========================================== -->
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
 
-        <section
-            id="certifications"
-            class="section-pad section-dark"
-        >
+    background:
+        linear-gradient(
+            135deg,
+            rgba(56, 189, 248, 0.08),
+            rgba(30, 41, 59, 0.35)
+        );
+}
 
-            <div class="container">
+.pursuing-badge {
+    display: inline-block;
 
+    margin-bottom: 15px;
 
-                <div class="section-heading reveal">
+    padding: 5px 10px;
 
-                    <span class="section-label">
-                        05 — CERTIFICATIONS
-                    </span>
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 20px;
 
-                    <h2>
-                        Learning path yang terus
-                        <span>berkembang.</span>
-                    </h2>
+    color: #38bdf8;
 
-                    <p>
-                        Sertifikasi yang sudah diperoleh dan kompetensi
-                        yang sedang dikejar.
-                    </p>
+    font-size: 0.6rem;
+    font-weight: 800;
 
-                </div>
+    letter-spacing: 1px;
+}
 
+.pursuing-card h3 {
+    font-size: 1.5rem;
+}
 
-                <div class="cert-grid">
+.pursuing-card > p {
+    max-width: 700px;
 
+    margin-top: 10px;
 
-                    <!-- EXCEL BASIC -->
+    color: #94a3b8;
 
-                    <article class="cert-card glass-card reveal">
+    font-size: 0.85rem;
+}
 
-                        <div class="cert-head">
+.pursuing-note {
+    margin-top: 25px !important;
 
-                            <div class="cert-logo">
-                                MS
-                            </div>
+    font-size: 0.75rem !important;
 
-                            <span class="status verified">
-                                Certified
-                            </span>
+    color: #64748b !important;
+}
 
-                        </div>
 
-                        <h3>
-                            Microsoft Excel Basic
-                        </h3>
+/* =========================================================
+   CAREER
+========================================================= */
 
-                        <p>
-                            MySkill
-                        </p>
+.career {
+    padding-top: 40px;
+}
 
-                        <small>
-                            Excel fundamentals
-                        </small>
+.career-card {
+    display: flex;
 
-                    </article>
+    align-items: center;
+    justify-content: space-between;
 
+    gap: 40px;
 
+    padding: 50px;
 
-                    <!-- EXCEL INTERMEDIATE -->
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 25px;
 
-                    <article class="cert-card glass-card reveal">
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(56, 189, 248, 0.1),
+            transparent 40%
+        ),
+        rgba(30, 41, 59, 0.35);
+}
 
-                        <div class="cert-head">
+.career-card h2 {
+    max-width: 700px;
 
-                            <div class="cert-logo">
-                                MS
-                            </div>
+    font-size: clamp(1.8rem, 4vw, 3rem);
 
-                            <span class="status verified">
-                                Certified
-                            </span>
+    line-height: 1.15;
 
-                        </div>
+    letter-spacing: -1.5px;
+}
 
-                        <h3>
-                            Microsoft Excel Intermediate
-                        </h3>
+.career-card h2 span {
+    color: #38bdf8;
+}
 
-                        <p>
-                            MySkill
-                        </p>
+.career-card > div > p:last-child {
+    max-width: 700px;
 
-                        <small>
-                            Intermediate spreadsheet skills
-                        </small>
+    margin-top: 20px;
 
-                    </article>
+    color: #94a3b8;
 
+    font-size: 0.9rem;
+}
 
 
-                    <!-- EXCEL EXPERT -->
+/* =========================================================
+   CONTACT
+========================================================= */
 
-                    <article class="cert-card glass-card reveal">
+.contact {
+    background: #0f172a;
+}
 
-                        <div class="cert-head">
+.contact-grid {
+    display: grid;
 
-                            <div class="cert-logo">
-                                MS
-                            </div>
+    grid-template-columns: repeat(3, 1fr);
 
-                            <span class="status verified">
-                                Certified
-                            </span>
+    gap: 15px;
+}
 
-                        </div>
+.contact-card {
+    min-height: 150px;
 
-                        <h3>
-                            Microsoft Excel Expert
-                        </h3>
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-                        <p>
-                            MySkill
-                        </p>
+    padding: 25px;
 
-                        <small>
-                            Advanced Excel skills
-                        </small>
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    border-radius: 18px;
 
-                    </article>
+    background: rgba(30, 41, 59, 0.35);
 
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
 
+.contact-card:hover {
+    transform: translateY(-5px);
 
-                    <!-- PIVOT -->
+    border-color: rgba(56, 189, 248, 0.4);
+}
 
-                    <article class="cert-card glass-card reveal">
+.contact-label {
+    color: #64748b;
 
-                        <div class="cert-head">
+    font-size: 0.65rem;
+    font-weight: 800;
 
-                            <div class="cert-logo">
-                                MS
-                            </div>
+    letter-spacing: 2px;
+}
 
-                            <span class="status verified">
-                                Certified
-                            </span>
+.contact-card strong {
+    margin-top: 10px;
 
-                        </div>
+    color: #f8fafc;
 
-                        <h3>
-                            Excel Pivot Table
-                        </h3>
+    font-size: 0.85rem;
+}
 
-                        <p>
-                            MySkill
-                        </p>
 
-                        <small>
-                            Pivot Table
-                        </small>
+/* =========================================================
+   FOOTER
+========================================================= */
 
-                    </article>
+.footer {
+    padding: 25px 0;
 
+    border-top: 1px solid rgba(148, 163, 184, 0.08);
 
+    background: #0b1120;
+}
 
-                    <!-- POWER PIVOT -->
+.footer-container {
+    display: flex;
 
-                    <article class="cert-card glass-card reveal">
+    align-items: center;
+    justify-content: space-between;
 
-                        <div class="cert-head">
+    gap: 20px;
+}
 
-                            <div class="cert-logo">
-                                MS
-                            </div>
+.footer p,
+.footer a {
+    color: #475569;
 
-                            <span class="status verified">
-                                Certified
-                            </span>
+    font-size: 0.7rem;
+}
 
-                        </div>
+.footer a:hover {
+    color: #38bdf8;
+}
 
-                        <h3>
-                            Excel Power Pivot
-                        </h3>
 
-                        <p>
-                            MySkill
-                        </p>
+/* =========================================================
+   PARTICLES
+========================================================= */
 
-                        <small>
-                            Power Pivot
-                        </small>
+.particles {
+    position: absolute;
 
-                    </article>
+    inset: 0;
 
+    pointer-events: none;
 
+    overflow: hidden;
+}
 
-                    <!-- BNSP -->
+.particle {
+    position: absolute;
 
-                    <article class="cert-card cert-progress glass-card reveal">
+    width: 3px;
+    height: 3px;
 
-                        <div class="cert-head">
+    border-radius: 50%;
 
-                            <div class="cert-logo">
-                                BNSP
-                            </div>
+    background: #38bdf8;
 
-                            <span class="status progress">
-                                In Progress
-                            </span>
+    opacity: 0.3;
 
-                        </div>
+    animation: floatParticle linear infinite;
+}
 
-                        <h3>
-                            Data Analyst
-                        </h3>
+@keyframes floatParticle {
 
-                        <p>
-                            DQLab / BNSP track
-                        </p>
+    0% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
 
-                        <small>
-                            Python for Data Analyst · SQL · Pandas ·
-                            Matplotlib · Data Visualization
-                        </small>
+    10% {
+        opacity: 0.3;
+    }
 
-                    </article>
+    90% {
+        opacity: 0.3;
+    }
 
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
 
-                </div>
+}
 
-            </div>
 
-        </section>
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
 
+.scroll-progress {
+    position: fixed;
 
+    top: 0;
+    left: 0;
 
-        <!-- =========================================
-             CAREER DIRECTION
-        ========================================== -->
+    width: 0;
+    height: 3px;
 
-        <section
-            id="career"
-            class="section-pad career-section"
-        >
+    z-index: 2000;
 
-            <div class="container">
+    background: #38bdf8;
+}
 
-                <div class="career-box glass-card reveal">
 
-                    <div>
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
-                        <span class="section-label">
-                            CAREER DIRECTION
-                        </span>
+.reveal {
+    opacity: 0;
 
-                        <h2>
-                            Ready to grow from
-                            <span>data & administration</span>
-                            into professional impact.
-                        </h2>
+    transform: translateY(30px);
 
-                        <p>
-                            Saya terbuka untuk kesempatan yang relevan
-                            di bidang administrasi, data analyst junior,
-                            HR support, data management, dan peran
-                            entry-level lain yang selaras dengan
-                            kompetensi saya.
-                        </p>
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
 
-                    </div>
+.reveal.show {
+    opacity: 1;
 
+    transform: translateY(0);
+}
 
-                    <a
-                        href="#contact"
-                        class="btn btn-primary magnetic"
-                    >
-                        Let's Connect
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
 
-                </div>
+/* =========================================================
+   GLOW EFFECT
+========================================================= */
 
-            </div>
+.project-card::after,
+.skill-card::after,
+.certification-card::after,
+.contact-card::after {
+    content: "";
 
-        </section>
+    position: absolute;
 
+    width: 100px;
+    height: 100px;
 
+    top: -50px;
+    right: -50px;
 
-        <!-- =========================================
-             CONTACT
-        ========================================== -->
+    border-radius: 50%;
 
-        <section
-            id="contact"
-            class="section-pad section-dark"
-        >
+    background: rgba(56, 189, 248, 0.08);
 
-            <div class="container contact-wrap">
+    filter: blur(30px);
 
+    opacity: 0;
 
-                <div class="section-heading reveal">
+    transition: opacity 0.3s ease;
+}
 
-                    <span class="section-label">
-                        06 — CONTACT
-                    </span>
+.project-card:hover::after,
+.skill-card:hover::after,
+.certification-card:hover::after,
+.contact-card:hover::after {
+    opacity: 1;
+}
 
-                    <h2>
-                        Mari <span>terhubung.</span>
-                    </h2>
 
-                    <p>
-                        Terbuka untuk peluang internship,
-                        entry-level position, project,
-                        dan networking profesional.
-                    </p>
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
 
-                </div>
+@media (max-width: 900px) {
 
+    .nav-menu {
+        position: fixed;
 
-                <div class="contact-grid">
+        top: 75px;
+        left: 0;
 
+        width: 100%;
 
-                    <!-- EMAIL -->
+        padding: 25px;
 
-                    <a
-                        class="contact-card glass-card reveal"
-                        href="mailto:muhamadyudhawaningpati@gmail.com"
-                    >
+        flex-direction: column;
+        align-items: flex-start;
 
-                        <i class="fas fa-envelope"></i>
+        background: rgba(11, 17, 32, 0.98);
 
-                        <div>
+        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
 
-                            <small>
-                                Email
-                            </small>
+        transform: translateY(-150%);
 
-                            <strong>
-                                muhamadyudhawaningpati@gmail.com
-                            </strong>
+        transition: transform 0.3s ease;
+    }
 
-                        </div>
+    .nav-menu.active {
+        transform: translateY(0);
+    }
 
-                        <i class="fas fa-arrow-up-right-from-square arrow"></i>
+    .menu-toggle {
+        display: flex;
+    }
 
-                    </a>
+    .hero-container {
+        grid-template-columns: 1fr;
 
+        gap: 60px;
+    }
 
+    .hero {
+        padding-bottom: 100px;
+    }
 
-                    <!-- WHATSAPP -->
+    .hero-card {
+        justify-content: flex-start;
+    }
 
-                    <a
-                        class="contact-card glass-card reveal"
-                        href="https://wa.me/628961702404"
-                        target="_blank"
-                        rel="noopener"
-                    >
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 
-                        <i class="fab fa-whatsapp"></i>
+    .career-card {
+        flex-direction: column;
 
-                        <div>
+        align-items: flex-start;
+    }
 
-                            <small>
-                                WhatsApp
-                            </small>
+    .certification-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 
-                            <strong>
-                                Chat directly
-                            </strong>
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 
-                        </div>
+}
 
-                        <i class="fas fa-arrow-up-right-from-square arrow"></i>
 
-                    </a>
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
 
+@media (max-width: 600px) {
 
+    .section {
+        padding: 80px 0;
+    }
 
-                    <!-- LINKEDIN -->
+    .container {
+        width: min(92%, 1120px);
+    }
 
-                    <a
-                        class="contact-card glass-card reveal"
-                        href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
-                        target="_blank"
-                        rel="noopener"
-                    >
+    .hero {
+        min-height: auto;
 
-                        <i class="fab fa-linkedin-in"></i>
+        padding-top: 120px;
+        padding-bottom: 80px;
+    }
 
-                        <div>
+    .hero h1 {
+        font-size: 3rem;
 
-                            <small>
-                                LinkedIn
-                            </small>
+        letter-spacing: -2px;
+    }
 
-                            <strong>
-                                Connect professionally
-                            </strong>
+    .typing-wrapper {
+        font-size: 1rem;
+    }
 
-                        </div>
+    .hero-description {
+        font-size: 0.9rem;
+    }
 
-                        <i class="fas fa-arrow-up-right-from-square arrow"></i>
+    .hero-buttons {
+        flex-direction: column;
 
-                    </a>
+        align-items: stretch;
+    }
 
+    .btn {
+        width: 100%;
+    }
 
-                </div>
+    .social-links {
+        flex-wrap: wrap;
+    }
 
-            </div>
+    .profile-card {
+        padding: 30px;
+    }
 
-        </section>
+    .profile-stats {
+        gap: 8px;
+    }
 
-    </main>
+    .section-heading {
+        margin-bottom: 40px;
+    }
 
+    .section-heading h2 {
+        font-size: 2.2rem;
 
+        letter-spacing: -1px;
+    }
 
-    <!-- =========================================
-         FOOTER
-    ========================================== -->
+    .timeline-item {
+        padding-left: 35px;
+    }
 
-    <footer class="footer">
+    .timeline::before {
+        left: 7px;
+    }
 
-        <div class="container footer-inner">
+    .timeline-dot {
+        left: 0;
+    }
 
-            <p>
-                © <span id="year">2026</span>
-                Muhamad Yudha Waningpati
-            </p>
+    .timeline-content {
+        padding: 22px;
+    }
 
-            <p>
-                Digital Administration · Data · HR Support
-            </p>
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 
-        </div>
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 
-    </footer>
+    .certification-grid {
+        grid-template-columns: 1fr;
+    }
 
+    .career-card {
+        padding: 30px;
+    }
 
+    .footer-container {
+        flex-direction: column;
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+        align-items: flex-start;
+    }
 
-</body>
-</html>
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
