@@ -1,80 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Portfolio of Muhamad Yudha Waningpati - Digital Administration, Data Management, Data Analysis, and HR Support.">
+
+    <meta name="author"
+        content="Muhamad Yudha Waningpati">
 
     <title>Muhamad Yudha Waningpati | Portfolio</title>
 
-    <meta 
-        name="description" 
-        content="Portfolio of Muhamad Yudha Waningpati - Digital Administration, Data Management, Data Analysis, and HR Support."
-    >
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="style.css">
 </head>
+
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
 
-    <header class="navbar" id="navbar">
+    <!-- =========================
+         SCROLL PROGRESS
+    ========================== -->
+
+    <div class="scroll-progress"
+        id="scrollProgress"></div>
+
+
+    <!-- =========================
+         PARTICLES
+    ========================== -->
+
+    <div class="particles"
+        id="particles"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar"
+        id="navbar">
 
         <div class="container nav-container">
 
-            <a href="#home" class="logo">
+
+            <!-- LOGO -->
+
+            <a href="#home"
+                class="logo">
+
                 MYW<span>.</span>
+
             </a>
 
-            <nav class="nav-menu" id="navMenu">
 
-                <a href="#home" class="nav-link active">
-                    Home
-                </a>
+            <!-- NAVIGATION -->
 
-                <a href="#about" class="nav-link">
-                    About
-                </a>
+            <nav>
 
-                <a href="#experience" class="nav-link">
-                    Experience
-                </a>
+                <ul class="nav-links"
+                    id="navLinks">
 
-                <a href="#projects" class="nav-link">
-                    Projects
-                </a>
+                    <li>
+                        <a href="#home"
+                            class="active">
+                            Home
+                        </a>
+                    </li>
 
-                <a href="#skills" class="nav-link">
-                    Skills
-                </a>
+                    <li>
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
 
-                <a href="#certifications" class="nav-link">
-                    Certifications
-                </a>
+                    <li>
+                        <a href="#experience">
+                            Experience
+                        </a>
+                    </li>
 
-                <a href="#contact" class="nav-link">
-                    Contact
-                </a>
+                    <li>
+                        <a href="#projects">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#skills">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#certifications">
+                            Certifications
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
 
             </nav>
 
-            <button 
-                class="menu-toggle" 
-                id="menuToggle"
-                aria-label="Open navigation menu"
-            >
+
+            <!-- MOBILE MENU -->
+
+            <button class="hamburger"
+                id="hamburger"
+                aria-label="Open navigation menu">
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
 
         </div>
@@ -82,30 +150,58 @@
     </header>
 
 
-    <!-- ================= HERO ================= -->
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <main>
 
-        <section class="hero" id="home">
 
-            <div class="particles"></div>
+        <section class="hero"
+            id="home">
 
-            <div class="container hero-container">
+            <div class="hero-glow"></div>
+
+
+            <div class="container hero-grid">
+
+
+                <!-- HERO TEXT -->
 
                 <div class="hero-content reveal">
 
-                    <p class="hero-label">
+
+                    <div class="eyebrow">
+
+                        <span></span>
+
+                        OPEN TO OPPORTUNITIES
+
+                    </div>
+
+
+                    <p class="greeting">
+
                         HELLO, I'M
+
                     </p>
 
+
                     <h1>
+
                         Muhamad Yudha
-                        <span>Waningpati</span>
+
+                        <strong>
+                            Waningpati
+                        </strong>
+
                     </h1>
 
-                    <div class="typing-wrapper">
 
-                        <span class="typing-text" id="typingText">
+                    <div class="typing-line">
+
+                        <span id="typingText">
                             Digital Administration
                         </span>
 
@@ -115,228 +211,369 @@
 
                     </div>
 
-                    <p class="hero-description">
+
+                    <p class="hero-desc">
 
                         D4 Digital Office Administration student at
-                        Universitas Negeri Jakarta with an interest in
-                        data management, data analysis, administration,
-                        and HR support.
+                        Universitas Negeri Jakarta with an interest
+                        in data management, data analysis,
+                        administration, and HR support.
 
                     </p>
 
 
-                    <!-- Hero Buttons -->
+                    <!-- BUTTONS -->
 
                     <div class="hero-buttons">
 
-                        <a href="#projects" class="btn btn-primary">
+
+                        <a href="#projects"
+                            class="btn btn-primary">
+
+                            <i class="fa-solid fa-folder-open"></i>
+
                             View My Projects
+
                         </a>
 
-                        <a href="#contact" class="btn btn-secondary">
+
+                        <a href="#contact"
+                            class="btn btn-outline">
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
                             Contact Me
+
                         </a>
+
 
                     </div>
 
 
-                    <!-- Social Media -->
+                    <!-- SOCIAL -->
 
-                    <div class="social-links">
+                    <div class="hero-socials">
 
-                        <a 
-                            href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
+
+                        <a href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="LinkedIn"
-                        >
-                            LinkedIn
+                            aria-label="LinkedIn">
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
                         </a>
 
-                        <a 
-                            href="mailto:muhamadyudhaw@gmail.com"
-                            aria-label="Email"
-                        >
-                            Email
+
+                        <a href="mailto:muhamadyudhawaningpati@gmail.com"
+                            aria-label="Email">
+
+                            <i class="fa-solid fa-envelope"></i>
+
                         </a>
 
-                        <a 
-                            href="https://wa.me/628961702404"
+
+                        <a href="https://wa.me/628961702404"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="WhatsApp"
-                        >
-                            WhatsApp
+                            aria-label="WhatsApp">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
                         </a>
+
 
                     </div>
+
 
                 </div>
 
 
-                <!-- Hero Profile Card -->
 
-                <div class="hero-card reveal">
+                <!-- HERO VISUAL -->
+
+                <div class="hero-visual reveal">
+
+
+                    <div class="orbit orbit-one"></div>
+
+                    <div class="orbit orbit-two"></div>
+
 
                     <div class="profile-card">
 
-                        <div class="profile-avatar">
-                            MYW
+
+                        <div class="profile-top">
+
+                            <span>
+                                PORTFOLIO
+                            </span>
+
+                            <span>
+                                2026
+                            </span>
+
                         </div>
 
-                        <p class="profile-role">
-                            Digital Administration
-                        </p>
+
+                        <div class="profile-avatar">
+
+                            MYW
+
+                        </div>
+
 
                         <h2>
-                            Data & Administration
+
+                            Digital Administration
+
                         </h2>
 
+
                         <p>
+
+                            Data & Administration
+
+                        </p>
+
+
+                        <p>
+
                             Building practical skills in
                             data management, analytics,
                             office administration, and
                             digital tools.
+
                         </p>
+
 
                         <div class="profile-stats">
 
-                            <div>
-                                <strong>3.71</strong>
-                                <span>GPA</span>
-                            </div>
 
                             <div>
-                                <strong>90+</strong>
-                                <span>Archive Boxes</span>
+
+                                <strong>
+                                    3.71
+                                </strong>
+
+                                <span>
+                                    GPA
+                                </span>
+
                             </div>
 
+
                             <div>
-                                <strong>2</strong>
-                                <span>Internship Roles</span>
+
+                                <strong>
+                                    90+
+                                </strong>
+
+                                <span>
+                                    Archive Boxes
+                                </span>
+
                             </div>
+
+
+                            <div>
+
+                                <strong>
+                                    2
+                                </strong>
+
+                                <span>
+                                    Internship Roles
+                                </span>
+
+                            </div>
+
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
+
             </div>
 
-            <div class="scroll-indicator">
-                <span>Scroll Down</span>
-                <span class="scroll-arrow">↓</span>
+
+            <!-- SCROLL DOWN -->
+
+            <div class="scroll-down">
+
+                <span>
+                    Scroll Down
+                </span>
+
+                <i class="fa-solid fa-arrow-down"></i>
+
             </div>
+
 
         </section>
 
 
-        <!-- ================= ABOUT ================= -->
 
-        <section class="section about" id="about">
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="section-pad"
+            id="about">
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         ABOUT ME
-                    </p>
+                    </span>
 
                     <h2>
-                        Administration meets
-                        <span>Data.</span>
+                        Building skills across
+                        <span>
+                            administration & data.
+                        </span>
                     </h2>
 
                     <p>
-                        I am a D4 Digital Office Administration
-                        student at Universitas Negeri Jakarta,
-                        interested in combining administrative
-                        skills with digital technology and data.
+                        A digital administration student
+                        developing practical experience in
+                        administrative work, data management,
+                        data analysis, and digital tools.
                     </p>
 
                 </div>
+
 
 
                 <div class="about-grid">
 
-                    <div class="about-text reveal">
+
+                    <div class="glass-card about-main reveal">
+
+
+                        <div class="icon-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Digital Office Administration
+                        </h3>
+
 
                         <p>
-                            My academic background in Digital Office
-                            Administration has developed my interest
-                            in administrative processes, document
-                            management, data processing, and digital
-                            productivity.
+                            I am a D4 Digital Office
+                            Administration student at
+                            Universitas Negeri Jakarta.
                         </p>
 
-                        <p>
-                            Through internship and organizational
-                            experiences, I have worked with financial
-                            archives, digital data, documentation,
-                            event management, and data administration.
-                        </p>
 
                         <p>
-                            I am currently developing my data analysis
-                            skills through Excel, SQL, Python, Pandas,
-                            Matplotlib, and data visualization.
+                            My academic and practical
+                            experience has helped me develop
+                            skills in administrative processes,
+                            document management, data handling,
+                            and digital productivity tools.
                         </p>
+
+
+                        <p>
+                            I am also developing my capabilities
+                            in data analysis and exploring how
+                            data can support better administrative
+                            and business decisions.
+                        </p>
+
 
                     </div>
 
 
-                    <div class="about-info reveal">
 
-                        <div class="info-card">
-
-                            <span>
-                                Education
-                            </span>
-
-                            <strong>
-                                Universitas Negeri Jakarta
-                            </strong>
-
-                            <p>
-                                D4 Administrasi Perkantoran Digital
-                            </p>
-
-                        </div>
+                    <div class="about-side">
 
 
-                        <div class="info-card">
+                        <div class="glass-card mini-card reveal">
 
-                            <span>
-                                GPA
-                            </span>
+                            <i class="fa-solid fa-graduation-cap"></i>
 
-                            <strong>
-                                3.71 / 4.00
-                            </strong>
+                            <div>
+
+                                <small>
+                                    Education
+                                </small>
+
+                                <strong>
+                                    Universitas Negeri Jakarta
+                                </strong>
+
+                                <span>
+                                    D4 Administrasi Perkantoran Digital
+                                </span>
+
+                            </div>
 
                         </div>
 
 
-                        <div class="info-card">
 
-                            <span>
-                                Location
-                            </span>
+                        <div class="glass-card mini-card reveal">
 
-                            <strong>
-                                Jakarta
-                            </strong>
+                            <i class="fa-solid fa-chart-line"></i>
 
-                            <p>
-                                Open to opportunities across
-                                Jakarta.
-                            </p>
+                            <div>
+
+                                <small>
+                                    GPA
+                                </small>
+
+                                <strong>
+                                    3.71 / 4.00
+                                </strong>
+
+                                <span>
+                                    Academic performance
+                                </span>
+
+                            </div>
 
                         </div>
+
+
+
+                        <div class="glass-card mini-card reveal">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <div>
+
+                                <small>
+                                    Location
+                                </small>
+
+                                <strong>
+                                    Jakarta
+                                </strong>
+
+                                <span>
+                                    Open to opportunities
+                                </span>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
+
 
                 </div>
 
@@ -345,23 +582,37 @@
         </section>
 
 
-        <!-- ================= EXPERIENCE ================= -->
 
-        <section class="section experience" id="experience">
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
+
+        <section class="section-pad section-dark"
+            id="experience">
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         EXPERIENCE
-                    </p>
+                    </span>
 
                     <h2>
-                        What I've <span>worked on.</span>
+                        Practical experience in
+                        <span>
+                            administration & data.
+                        </span>
                     </h2>
 
+                    <p>
+                        Experience gained through internship
+                        and organizational activities.
+                    </p>
+
                 </div>
+
 
 
                 <div class="timeline">
@@ -369,175 +620,256 @@
 
                     <!-- EXPERIENCE 1 -->
 
-                    <article class="timeline-item reveal">
+                    <div class="timeline-item reveal">
 
-                        <div class="timeline-dot"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-marker">
 
-                            <span class="timeline-date">
-                                2026
-                            </span>
+                            <i class="fa-solid fa-calendar-check"></i>
+
+                        </div>
+
+
+                        <div class="glass-card timeline-content">
+
+
+                            <div class="timeline-meta">
+
+                                <span>
+                                    2026
+                                </span>
+
+                                <span>
+                                    Organization / Event
+                                </span>
+
+                            </div>
+
 
                             <h3>
                                 Coordinator of Graphic Design Competition
                                 & Data Management
                             </h3>
 
+
                             <h4>
                                 OACTION ASPAPI
                             </h4>
 
+
                             <p>
-                                Coordinated the Graphic Design Competition
-                                and supported data management for an event
-                                involving online and offline participants.
+                                Coordinated the graphic design
+                                competition and supported data
+                                management during the event.
                             </p>
+
 
                             <ul>
 
                                 <li>
-                                    Managed data for 100 online participants
+                                    Managed participation data
+                                    for 100 online participants
                                     and 36 offline participants.
                                 </li>
 
                                 <li>
-                                    Supported the selection and management
-                                    of 10 finalists.
+                                    Coordinated 10 finalists.
                                 </li>
 
                                 <li>
-                                    Created competition SOPs.
+                                    Created competition SOP.
                                 </li>
 
                                 <li>
-                                    Supervised event execution and provided
-                                    feedback to the team.
+                                    Supervised and provided
+                                    feedback during event execution.
                                 </li>
 
                                 <li>
-                                    Supported monitoring and event security
-                                    to maintain competition integrity.
+                                    Helped monitor competition
+                                    security and ensure fair
+                                    participation.
                                 </li>
 
                             </ul>
 
+
                             <div class="tags">
 
-                                <span>Canva</span>
-                                <span>PowerPoint</span>
-                                <span>Excel</span>
-                                <span>SQL</span>
+                                <span>
+                                    Canva
+                                </span>
+
+                                <span>
+                                    PowerPoint
+                                </span>
+
+                                <span>
+                                    Excel
+                                </span>
+
+                                <span>
+                                    SQL
+                                </span>
 
                             </div>
 
+
                         </div>
 
-                    </article>
+                    </div>
+
 
 
                     <!-- EXPERIENCE 2 -->
 
-                    <article class="timeline-item reveal">
+                    <div class="timeline-item reveal">
 
-                        <div class="timeline-dot"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-marker">
 
-                            <span class="timeline-date">
-                                January – May
-                            </span>
+                            <i class="fa-solid fa-box-archive"></i>
+
+                        </div>
+
+
+                        <div class="glass-card timeline-content">
+
+
+                            <div class="timeline-meta">
+
+                                <span>
+                                    January – May
+                                </span>
+
+                                <span>
+                                    Internship
+                                </span>
+
+                            </div>
+
 
                             <h3>
                                 Financial Archivist
                             </h3>
 
+
                             <h4>
                                 BPJS Ketenagakerjaan
                             </h4>
 
+
                             <p>
-                                Supported financial archive management
-                                and document organization during an
-                                internship.
+                                Supported financial document
+                                administration and physical
+                                archive management.
                             </p>
+
 
                             <ul>
 
                                 <li>
-                                    Managed financial archives for 2025.
+                                    Managed 2025 financial archives.
                                 </li>
 
                                 <li>
-                                    Archived approximately 90 boxes
-                                    of documents.
+                                    Archived 90 boxes of documents.
                                 </li>
 
                                 <li>
-                                    Created archive lists to improve
-                                    document identification.
+                                    Created archive lists to
+                                    support document tracking.
                                 </li>
 
                                 <li>
-                                    Organized administrative documents
-                                    using Microsoft Excel and Word.
+                                    Maintained organized
+                                    administrative records.
                                 </li>
 
                             </ul>
 
+
                             <div class="tags">
 
-                                <span>Microsoft Excel</span>
-                                <span>Microsoft Word</span>
-                                <span>Archiving</span>
-                                <span>Data Management</span>
+                                <span>
+                                    Microsoft Excel
+                                </span>
+
+                                <span>
+                                    Microsoft Word
+                                </span>
+
+                                <span>
+                                    Archive Management
+                                </span>
 
                             </div>
 
+
                         </div>
 
-                    </article>
+                    </div>
+
 
 
                     <!-- EXPERIENCE 3 -->
 
-                    <article class="timeline-item reveal">
+                    <div class="timeline-item reveal">
 
-                        <div class="timeline-dot"></div>
 
-                        <div class="timeline-content">
+                        <div class="timeline-marker">
 
-                            <span class="timeline-date">
-                                June – September
-                            </span>
+                            <i class="fa-solid fa-database"></i>
+
+                        </div>
+
+
+                        <div class="glass-card timeline-content">
+
+
+                            <div class="timeline-meta">
+
+                                <span>
+                                    June – September
+                                </span>
+
+                                <span>
+                                    Internship
+                                </span>
+
+                            </div>
+
 
                             <h3>
                                 Data Entry Specialist
                             </h3>
 
+
                             <h4>
                                 BPJS Ketenagakerjaan
                             </h4>
 
+
                             <p>
-                                Managed digital data and archive-related
-                                information during an internship.
+                                Supported digital data management,
+                                verification, and archive organization.
                             </p>
+
 
                             <ul>
 
                                 <li>
-                                    Created and verified archives across
-                                    5 categories for 2025.
+                                    Created and verified archives
+                                    across five categories in 2025.
                                 </li>
 
                                 <li>
-                                    Managed digital data and documentation.
+                                    Managed digital administrative data.
                                 </li>
 
                                 <li>
-                                    Created a dashboard to support easier
-                                    archive retrieval.
+                                    Created a dashboard to make
+                                    archive retrieval easier.
                                 </li>
 
                                 <li>
@@ -546,18 +878,32 @@
 
                             </ul>
 
+
                             <div class="tags">
 
-                                <span>Excel</span>
-                                <span>Word</span>
-                                <span>Data Entry</span>
-                                <span>Dashboard</span>
+                                <span>
+                                    Excel
+                                </span>
+
+                                <span>
+                                    Word
+                                </span>
+
+                                <span>
+                                    Data Entry
+                                </span>
+
+                                <span>
+                                    Data Management
+                                </span>
 
                             </div>
 
+
                         </div>
 
-                    </article>
+                    </div>
+
 
                 </div>
 
@@ -566,30 +912,38 @@
         </section>
 
 
-        <!-- ================= PROJECTS ================= -->
 
-        <section class="section projects" id="projects">
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="section-pad"
+            id="projects">
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         PROJECTS
-                    </p>
+                    </span>
 
                     <h2>
                         Turning data into
-                        <span>insights.</span>
+                        <span>
+                            useful insights.
+                        </span>
                     </h2>
 
                     <p>
-                        Selected projects that demonstrate my
-                        developing skills in data analysis,
-                        data management, and digital tools.
+                        Selected learning projects and
+                        practical exercises in data and
+                        administrative analytics.
                     </p>
 
                 </div>
+
 
 
                 <div class="project-grid">
@@ -597,134 +951,203 @@
 
                     <!-- PROJECT 1 -->
 
-                    <article class="project-card reveal">
+                    <article class="glass-card project-card reveal">
 
-                        <div class="project-number">
-                            01
-                        </div>
 
                         <div class="project-icon">
-                            SQL
+
+                            <i class="fa-solid fa-users"></i>
+
                         </div>
+
+
+                        <span class="project-type">
+                            SQL
+                        </span>
+
 
                         <h3>
                             Customer Retention Analysis
                         </h3>
 
+
                         <p>
-                            Analyzed customer activity and retention
-                            patterns using SQL to understand customer
-                            behavior across different periods.
+                            Analyzed customer activity and
+                            retention cohort patterns using
+                            SQL queries.
                         </p>
 
-                        <div class="project-tags">
 
-                            <span>SQL</span>
-                            <span>Retention</span>
-                            <span>Data Analysis</span>
+                        <div class="tags">
+
+                            <span>
+                                SQL
+                            </span>
+
+                            <span>
+                                Retention
+                            </span>
+
+                            <span>
+                                Cohort Analysis
+                            </span>
 
                         </div>
+
 
                     </article>
 
 
+
                     <!-- PROJECT 2 -->
 
-                    <article class="project-card reveal">
+                    <article class="glass-card project-card reveal">
 
-                        <div class="project-number">
-                            02
-                        </div>
 
                         <div class="project-icon">
-                            PY
+
+                            <i class="fa-solid fa-chart-column"></i>
+
                         </div>
+
+
+                        <span class="project-type">
+                            Python
+                        </span>
+
 
                         <h3>
                             Retail Data Analysis
                         </h3>
 
+
                         <p>
-                            Explored retail transaction data using
-                            Python and Pandas to identify trends,
-                            patterns, and useful business insights.
+                            Explored retail transaction data
+                            using Python, Pandas, and
+                            Matplotlib to identify useful
+                            business insights.
                         </p>
 
-                        <div class="project-tags">
 
-                            <span>Python</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
+                        <div class="tags">
+
+                            <span>
+                                Python
+                            </span>
+
+                            <span>
+                                Pandas
+                            </span>
+
+                            <span>
+                                Matplotlib
+                            </span>
 
                         </div>
+
 
                     </article>
 
 
+
                     <!-- PROJECT 3 -->
 
-                    <article class="project-card reveal">
+                    <article class="glass-card project-card reveal">
 
-                        <div class="project-number">
-                            03
-                        </div>
 
                         <div class="project-icon">
-                            EX
+
+                            <i class="fa-solid fa-file-excel"></i>
+
                         </div>
+
+
+                        <span class="project-type">
+                            Excel
+                        </span>
+
 
                         <h3>
                             Excel Data Management
                         </h3>
 
+
                         <p>
-                            Applied Excel for data organization,
-                            analysis, pivot tables, and Power Pivot
-                            to support structured data management.
+                            Practiced data management,
+                            PivotTable, Power Pivot,
+                            and spreadsheet analysis.
                         </p>
 
-                        <div class="project-tags">
 
-                            <span>Excel</span>
-                            <span>Pivot</span>
-                            <span>Power Pivot</span>
+                        <div class="tags">
+
+                            <span>
+                                Excel
+                            </span>
+
+                            <span>
+                                PivotTable
+                            </span>
+
+                            <span>
+                                Power Pivot
+                            </span>
 
                         </div>
+
 
                     </article>
 
 
+
                     <!-- PROJECT 4 -->
 
-                    <article class="project-card reveal">
+                    <article class="glass-card project-card reveal">
 
-                        <div class="project-number">
-                            04
-                        </div>
 
                         <div class="project-icon">
-                            DV
+
+                            <i class="fa-solid fa-chart-pie"></i>
+
                         </div>
+
+
+                        <span class="project-type">
+                            Data Visualization
+                        </span>
+
 
                         <h3>
                             Data Visualization
                         </h3>
 
+
                         <p>
-                            Created visualizations from analytical
-                            datasets to communicate patterns and
-                            findings in a clearer way.
+                            Created charts and visual
+                            representations using Matplotlib
+                            to communicate analytical findings.
                         </p>
 
-                        <div class="project-tags">
 
-                            <span>Matplotlib</span>
-                            <span>Visualization</span>
-                            <span>Analytics</span>
+                        <div class="tags">
+
+                            <span>
+                                Matplotlib
+                            </span>
+
+                            <span>
+                                Visualization
+                            </span>
+
+                            <span>
+                                Data Analysis
+                            </span>
 
                         </div>
 
+
                     </article>
+
 
                 </div>
 
@@ -733,120 +1156,106 @@
         </section>
 
 
-        <!-- ================= SKILLS ================= -->
 
-        <section class="section skills" id="skills">
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
+        <section class="section-pad section-dark"
+            id="skills">
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         SKILLS
-                    </p>
+                    </span>
 
                     <h2>
-                        Tools I <span>work with.</span>
+                        Tools I use to
+                        <span>
+                            get things done.
+                        </span>
                     </h2>
+
+                    <p>
+                        A combination of office productivity,
+                        data, design, and digital tools.
+                    </p>
 
                 </div>
 
 
-                <div class="skills-grid">
+
+                <div class="skills-layout">
 
 
                     <!-- DATA -->
 
-                    <div class="skill-card reveal">
+                    <div class="glass-card skill-group reveal">
 
-                        <div class="skill-header">
 
-                            <span class="skill-icon">
-                                DATA
-                            </span>
+                        <div class="skill-title">
+
+                            <i class="fa-solid fa-chart-line"></i>
 
                             <h3>
-                                Data & Analytics
+                                Data & Analysis
                             </h3>
 
                         </div>
 
+
                         <div class="skill-list">
 
-                            <div class="skill-item">
+                            <span>
+                                Excel
+                            </span>
 
-                                <span>Microsoft Excel</span>
+                            <span>
+                                SQL
+                            </span>
 
-                                <span class="skill-level">
-                                    Advanced
-                                </span>
+                            <span>
+                                Python
+                            </span>
 
-                            </div>
+                            <span>
+                                Pandas
+                            </span>
 
-                            <div class="skill-item">
+                            <span>
+                                Matplotlib
+                            </span>
 
-                                <span>SQL</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Python</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Pandas</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Matplotlib</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Data Visualization</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
+                            <span>
+                                Data Visualization
+                            </span>
 
                         </div>
+
+
+                        <p class="skill-note">
+                            Developing practical data
+                            analysis capabilities through
+                            structured learning and projects.
+                        </p>
+
 
                     </div>
 
 
+
                     <!-- OFFICE -->
 
-                    <div class="skill-card reveal">
+                    <div class="glass-card skill-group reveal">
 
-                        <div class="skill-header">
 
-                            <span class="skill-icon">
-                                OFFICE
-                            </span>
+                        <div class="skill-title">
+
+                            <i class="fa-solid fa-briefcase"></i>
 
                             <h3>
                                 Office & Administration
@@ -854,62 +1263,44 @@
 
                         </div>
 
+
                         <div class="skill-list">
 
-                            <div class="skill-item">
+                            <span>
+                                Microsoft Word
+                            </span>
 
-                                <span>Microsoft Word</span>
+                            <span>
+                                Microsoft Excel
+                            </span>
 
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
+                            <span>
+                                PowerPoint
+                            </span>
 
-                            </div>
+                            <span>
+                                Google Docs
+                            </span>
 
-                            <div class="skill-item">
-
-                                <span>Microsoft PowerPoint</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Google Docs</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Google Sheets</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
+                            <span>
+                                Google Sheets
+                            </span>
 
                         </div>
+
 
                     </div>
 
 
+
                     <!-- DESIGN -->
 
-                    <div class="skill-card reveal">
+                    <div class="glass-card skill-group reveal">
 
-                        <div class="skill-header">
 
-                            <span class="skill-icon">
-                                DESIGN
-                            </span>
+                        <div class="skill-title">
+
+                            <i class="fa-solid fa-pen-ruler"></i>
 
                             <h3>
                                 Design & Content
@@ -917,52 +1308,36 @@
 
                         </div>
 
+
                         <div class="skill-list">
 
-                            <div class="skill-item">
+                            <span>
+                                Canva
+                            </span>
 
-                                <span>Canva</span>
+                            <span>
+                                Figma
+                            </span>
 
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Figma</span>
-
-                                <span class="skill-level developing">
-                                    Developing
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>CapCut</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
+                            <span>
+                                CapCut
+                            </span>
 
                         </div>
+
 
                     </div>
 
 
+
                     <!-- AI -->
 
-                    <div class="skill-card reveal">
+                    <div class="glass-card skill-group reveal">
 
-                        <div class="skill-header">
 
-                            <span class="skill-icon">
-                                AI
-                            </span>
+                        <div class="skill-title">
+
+                            <i class="fa-solid fa-robot"></i>
 
                             <h3>
                                 AI Tools
@@ -970,41 +1345,26 @@
 
                         </div>
 
+
                         <div class="skill-list">
 
-                            <div class="skill-item">
+                            <span>
+                                ChatGPT
+                            </span>
 
-                                <span>ChatGPT</span>
+                            <span>
+                                Gemini
+                            </span>
 
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Gemini</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
-
-                            <div class="skill-item">
-
-                                <span>Claude</span>
-
-                                <span class="skill-level">
-                                    Proficient
-                                </span>
-
-                            </div>
+                            <span>
+                                Claude
+                            </span>
 
                         </div>
 
+
                     </div>
+
 
                 </div>
 
@@ -1013,274 +1373,372 @@
         </section>
 
 
-        <!-- ================= CERTIFICATIONS ================= -->
 
-        <section class="section certifications" id="certifications">
+        <!-- =========================
+             CERTIFICATIONS
+        ========================== -->
+
+        <section class="section-pad"
+            id="certifications">
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         CERTIFICATIONS
-                    </p>
+                    </span>
 
                     <h2>
                         Learning through
-                        <span>certification.</span>
+                        <span>
+                            certification.
+                        </span>
                     </h2>
 
                     <p>
-                        Certifications I have completed and
-                        competencies I am currently developing.
+                        Certifications I have completed
+                        and competencies I am currently
+                        developing.
                     </p>
 
                 </div>
+
 
 
                 <!-- COMPLETED -->
 
-                <div class="certification-group reveal">
-
-                    <div class="certification-group-title">
-
-                        <span>
-                            01
-                        </span>
-
-                        <h3>
-                            Completed Certifications
-                        </h3>
-
-                    </div>
+                <div class="certification-section">
 
 
-                    <div class="certification-grid">
+                    <h3 class="certification-title">
+                        Completed Certifications
+                    </h3>
 
 
-                        <div class="certification-card">
+                    <div class="cert-grid">
 
-                            <div class="certification-logo">
-                                MS
-                            </div>
 
-                            <div>
+                        <!-- EXCEL BASIC -->
 
-                                <h4>
-                                    Excel Basic
-                                </h4>
+                        <article class="glass-card cert-card reveal">
 
-                                <p>
-                                    MySkill
-                                </p>
 
-                                <span>
-                                    Certification
+                            <div class="cert-head">
+
+                                <div class="cert-logo">
+                                    MS
+                                </div>
+
+                                <span class="status verified">
+                                    Completed
                                 </span>
 
                             </div>
 
-                        </div>
+
+                            <h3>
+                                Excel Basic
+                            </h3>
 
 
-                        <div class="certification-card">
+                            <p>
+                                MySkill
+                            </p>
 
-                            <div class="certification-logo">
-                                MS
-                            </div>
 
-                            <div>
+                            <small>
+                                Excel Certification
+                            </small>
 
-                                <h4>
-                                    Excel Intermediate
-                                </h4>
 
-                                <p>
-                                    MySkill
-                                </p>
+                        </article>
 
-                                <span>
-                                    Certification
+
+
+                        <!-- EXCEL INTERMEDIATE -->
+
+                        <article class="glass-card cert-card reveal">
+
+
+                            <div class="cert-head">
+
+                                <div class="cert-logo">
+                                    MS
+                                </div>
+
+                                <span class="status verified">
+                                    Completed
                                 </span>
 
                             </div>
 
-                        </div>
+
+                            <h3>
+                                Excel Intermediate
+                            </h3>
 
 
-                        <div class="certification-card">
+                            <p>
+                                MySkill
+                            </p>
 
-                            <div class="certification-logo">
-                                MS
-                            </div>
 
-                            <div>
+                            <small>
+                                Excel Certification
+                            </small>
 
-                                <h4>
-                                    Excel Expert
-                                </h4>
 
-                                <p>
-                                    MySkill
-                                </p>
+                        </article>
 
-                                <span>
-                                    Certification
+
+
+                        <!-- EXCEL EXPERT -->
+
+                        <article class="glass-card cert-card reveal">
+
+
+                            <div class="cert-head">
+
+                                <div class="cert-logo">
+                                    MS
+                                </div>
+
+                                <span class="status verified">
+                                    Completed
                                 </span>
 
                             </div>
 
-                        </div>
+
+                            <h3>
+                                Excel Expert
+                            </h3>
 
 
-                        <div class="certification-card">
+                            <p>
+                                MySkill
+                            </p>
 
-                            <div class="certification-logo">
-                                MS
-                            </div>
 
-                            <div>
+                            <small>
+                                Excel Certification
+                            </small>
 
-                                <h4>
-                                    Excel Pivot Table
-                                </h4>
 
-                                <p>
-                                    MySkill
-                                </p>
+                        </article>
 
-                                <span>
-                                    Certification
+
+
+                        <!-- PIVOT TABLE -->
+
+                        <article class="glass-card cert-card reveal">
+
+
+                            <div class="cert-head">
+
+                                <div class="cert-logo">
+                                    MS
+                                </div>
+
+                                <span class="status verified">
+                                    Completed
                                 </span>
 
                             </div>
 
-                        </div>
+
+                            <h3>
+                                Excel Pivot Table
+                            </h3>
 
 
-                        <div class="certification-card">
+                            <p>
+                                MySkill
+                            </p>
 
-                            <div class="certification-logo">
-                                MS
-                            </div>
 
-                            <div>
+                            <small>
+                                Excel Certification
+                            </small>
 
-                                <h4>
-                                    Excel Power Pivot
-                                </h4>
 
-                                <p>
-                                    MySkill
-                                </p>
+                        </article>
 
-                                <span>
-                                    Certification
+
+
+                        <!-- POWER PIVOT -->
+
+                        <article class="glass-card cert-card reveal">
+
+
+                            <div class="cert-head">
+
+                                <div class="cert-logo">
+                                    MS
+                                </div>
+
+                                <span class="status verified">
+                                    Completed
                                 </span>
 
                             </div>
 
-                        </div>
+
+                            <h3>
+                                Excel Power Pivot
+                            </h3>
+
+
+                            <p>
+                                MySkill
+                            </p>
+
+
+                            <small>
+                                Excel Certification
+                            </small>
+
+
+                        </article>
+
 
                     </div>
 
                 </div>
 
 
+
                 <!-- CURRENTLY PURSUING -->
 
-                <div class="certification-group pursuing reveal">
-
-                    <div class="certification-group-title">
-
-                        <span>
-                            02
-                        </span>
-
-                        <h3>
-                            Currently Pursuing
-                        </h3>
-
-                    </div>
+                <div class="certification-section pursuing-section">
 
 
-                    <div class="pursuing-card">
+                    <h3 class="certification-title">
+                        Currently Pursuing
+                    </h3>
 
-                        <div class="pursuing-badge">
-                            IN PROGRESS
+
+                    <article class="glass-card cert-card cert-progress reveal">
+
+
+                        <div class="cert-head">
+
+                            <div class="cert-logo">
+                                DA
+                            </div>
+
+                            <span class="status progress">
+                                In Progress
+                            </span>
+
                         </div>
+
 
                         <h3>
                             BNSP Data Analyst
                         </h3>
 
+
                         <p>
-                            Developing data analyst competencies
-                            through structured learning in:
+                            Developing Data Analyst Competencies
                         </p>
 
-                        <div class="tags">
 
-                            <span>Python for Data Analyst</span>
-                            <span>SQL</span>
-                            <span>Pandas</span>
-                            <span>Matplotlib</span>
-                            <span>Data Visualization</span>
+                        <small>
+                            Structured learning through DQLab
+                            and preparation toward BNSP Data
+                            Analyst certification.
+                        </small>
+
+
+                        <div class="skill-list"
+                            style="margin-top: 18px;">
+
+                            <span>
+                                Python for Data Analyst
+                            </span>
+
+                            <span>
+                                SQL
+                            </span>
+
+                            <span>
+                                Pandas
+                            </span>
+
+                            <span>
+                                Matplotlib
+                            </span>
+
+                            <span>
+                                Data Visualization
+                            </span>
 
                         </div>
 
-                        <p class="pursuing-note">
-                            Data analysis learning is currently
-                            being developed through DQLab and
-                            preparation toward BNSP Data Analyst
-                            certification.
-                        </p>
 
-                    </div>
+                    </article>
+
 
                 </div>
+
 
             </div>
 
         </section>
 
 
-        <!-- ================= CAREER DIRECTION ================= -->
 
-        <section class="section career">
+        <!-- =========================
+             CAREER DIRECTION
+        ========================== -->
+
+        <section class="section-pad career-section">
 
             <div class="container">
 
-                <div class="career-card reveal">
+
+                <div class="glass-card career-box reveal">
+
 
                     <div>
 
-                        <p class="section-label">
+                        <span class="section-label">
                             CAREER DIRECTION
-                        </p>
+                        </span>
+
 
                         <h2>
-                            Looking to grow where
-                            <span>administration meets data.</span>
+                            Interested in
+                            <span>
+                                administration,
+                                data & HR support.
+                            </span>
                         </h2>
 
+
                         <p>
-                            I am open to opportunities in
-                            administration, data management,
-                            junior data analysis, HR support,
-                            and other roles where digital
-                            skills can create practical value.
+                            I am interested in entry-level
+                            opportunities where administrative
+                            skills, data management, analysis,
+                            and digital tools can support
+                            organizational needs.
                         </p>
 
                     </div>
 
 
-                    <a 
-                        href="#contact"
-                        class="btn btn-primary"
-                    >
+                    <a href="#contact"
+                        class="btn btn-primary">
+
                         Let's Connect
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
+
 
                 </div>
 
@@ -1289,30 +1747,38 @@
         </section>
 
 
-        <!-- ================= CONTACT ================= -->
 
-        <section class="section contact" id="contact">
+        <!-- =========================
+             CONTACT
+        ========================== -->
 
-            <div class="container">
+        <section class="section-pad"
+            id="contact">
+
+            <div class="container contact-wrap">
+
 
                 <div class="section-heading reveal">
 
-                    <p class="section-label">
+                    <span class="section-label">
                         CONTACT
-                    </p>
+                    </span>
 
                     <h2>
-                        Let's work
-                        <span>together.</span>
+                        Let's
+                        <span>
+                            connect.
+                        </span>
                     </h2>
 
                     <p>
-                        Feel free to reach out for internship,
-                        entry-level opportunities, collaboration,
-                        or professional networking.
+                        Feel free to reach out for
+                        opportunities, collaboration,
+                        or professional connections.
                     </p>
 
                 </div>
+
 
 
                 <div class="contact-grid">
@@ -1320,60 +1786,93 @@
 
                     <!-- EMAIL -->
 
-                    <a 
-                        href="mailto:muhamadyudhaw@gmail.com"
-                        class="contact-card reveal"
-                    >
+                    <a href="mailto:muhamadyudhawaningpati@gmail.com"
+                        class="glass-card contact-card reveal">
 
-                        <span class="contact-label">
-                            EMAIL
-                        </span>
 
-                        <strong>
-                            muhamadyudhawaningpati@gmail.com
-                        </strong>
+                        <i class="fa-solid fa-envelope"></i>
+
+
+                        <div>
+
+                            <small>
+                                Email
+                            </small>
+
+                            <strong>
+                                muhamadyudhawaningpati@gmail.com
+                            </strong>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
 
                     </a>
+
 
 
                     <!-- LINKEDIN -->
 
-                    <a 
-                        href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
+                    <a href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="contact-card reveal"
-                    >
+                        class="glass-card contact-card reveal">
 
-                        <span class="contact-label">
-                            LINKEDIN
-                        </span>
 
-                        <strong>
-                            Connect with me
-                        </strong>
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+
+                        <div>
+
+                            <small>
+                                LinkedIn
+                            </small>
+
+                            <strong>
+                                Muhamad Yudha Waningpati
+                            </strong>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
 
                     </a>
+
 
 
                     <!-- WHATSAPP -->
 
-                    <a 
-                        href="https://wa.me/628961702404"
+                    <a href="https://wa.me/628961702404"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="contact-card reveal"
-                    >
+                        class="glass-card contact-card reveal">
 
-                        <span class="contact-label">
-                            WHATSAPP
-                        </span>
 
-                        <strong>
-                            Let's chat
-                        </strong>
+                        <i class="fa-brands fa-whatsapp"></i>
+
+
+                        <div>
+
+                            <small>
+                                WhatsApp
+                            </small>
+
+                            <strong>
+                                +62 896-1702-404
+                            </strong>
+
+                        </div>
+
+
+                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+
 
                     </a>
+
 
                 </div>
 
@@ -1381,40 +1880,40 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <footer class="footer">
 
-        <div class="container footer-container">
+        <div class="container footer-inner">
 
-            <p>
-                © 2026 Muhamad Yudha Waningpati.
-                All rights reserved.
-            </p>
+            <span>
+                © 2026 Muhamad Yudha Waningpati
+            </span>
 
-            <a href="#home">
-                Back to top ↑
-            </a>
+            <span>
+                Digital Administration · Data · HR Support
+            </span>
 
         </div>
 
     </footer>
 
 
-    <!-- ================= SCROLL PROGRESS ================= -->
 
-    <div 
-        class="scroll-progress" 
-        id="scrollProgress"
-    ></div>
-
-
-    <!-- ================= JAVASCRIPT ================= -->
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
 
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
