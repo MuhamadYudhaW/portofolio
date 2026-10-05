@@ -1,1620 +1,981 @@
-/* =========================================================
-   RESET & GLOBAL
-========================================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Inter", sans-serif;
-    background: #0b1120;
-    color: #f8fafc;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-}
-
-.container {
-    width: min(1120px, 90%);
-    margin: 0 auto;
-}
-
-.section {
-    padding: 110px 0;
-    position: relative;
-}
-
-::selection {
-    background: #38bdf8;
-    color: #0b1120;
-}
-
-
-/* =========================================================
-   CUSTOM SCROLLBAR
-========================================================= */
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0b1120;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 20px;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-::-webkit-scrollbar-thumb:hover {
-    background: #38bdf8;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Muhamad Yudha Waningpati | Portfolio</title>
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+    <meta name="description"
+        content="Portfolio of Muhamad Yudha Waningpati - Digital Administration, Data Management, Data Analysis, and HR Support.">
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+    <link rel="stylesheet" href="style.css">
 
-    background: rgba(11, 17, 32, 0.75);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    transition: 0.3s ease;
-}
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
 
-.navbar.scrolled {
-    background: rgba(11, 17, 32, 0.95);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
-}
 
-.nav-container {
-    min-height: 75px;
+<body>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
+    <header class="navbar">
 
-.logo span {
-    color: #38bdf8;
-}
+        <div class="container navbar-inner">
 
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
+            <a href="#home" class="logo">
+                MYW<span>.</span>
+            </a>
 
-.nav-link {
-    position: relative;
+            <nav class="nav-menu">
 
-    font-size: 0.85rem;
-    font-weight: 500;
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
 
-    color: #94a3b8;
+            </nav>
 
-    transition: color 0.3s ease;
-}
+            <button class="menu-toggle" aria-label="Open navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-.nav-link:hover,
-.nav-link.active {
-    color: #f8fafc;
-}
+        </div>
 
-.nav-link::after {
-    content: "";
+    </header>
 
-    position: absolute;
-    left: 0;
-    bottom: -8px;
 
-    width: 0;
-    height: 2px;
+    <main>
 
-    background: #38bdf8;
+        <!-- =========================
+             HERO
+        ========================== -->
 
-    transition: width 0.3s ease;
-}
+        <section id="home" class="hero">
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
+            <div class="hero-glow"></div>
 
-.menu-toggle {
-    display: none;
+            <div class="container hero-grid">
 
-    width: 42px;
-    height: 42px;
+                <div class="hero-content">
 
-    border: 1px solid #334155;
-    border-radius: 10px;
+                    <p class="eyebrow">
+                        HELLO, I'M
+                    </p>
 
-    background: transparent;
+                    <h1>
+                        Muhamad Yudha
+                        <span>Waningpati</span>
+                    </h1>
 
-    cursor: pointer;
+                    <div class="hero-role">
+                        <span id="typing-text">Digital Administration</span>
+                    </div>
 
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
+                    <p class="hero-description">
+                        D4 Digital Office Administration student at
+                        Universitas Negeri Jakarta with an interest in
+                        data management, data analysis, administration,
+                        and HR support.
+                    </p>
 
-.menu-toggle span {
-    width: 20px;
-    height: 2px;
+                    <div class="hero-buttons">
 
-    background: #f8fafc;
+                        <a href="#projects" class="button button-primary">
+                            View My Projects
+                        </a>
 
-    transition: 0.3s ease;
-}
+                        <a href="#contact" class="button button-secondary">
+                            Contact Me
+                        </a>
 
+                    </div>
 
-/* =========================================================
-   HERO
-========================================================= */
+                    <div class="social-links">
 
-.hero {
-    min-height: 100vh;
+                        <a
+                            href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn">
 
-    position: relative;
+                            <i class="fa-brands fa-linkedin-in"></i>
 
-    display: flex;
-    align-items: center;
+                        </a>
 
-    overflow: hidden;
+                        <a
+                            href="mailto:muhamadyudhawaningpati@gmail.com"
+                            aria-label="Email">
 
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(56, 189, 248, 0.12),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 20% 80%,
-            rgba(59, 130, 246, 0.08),
-            transparent 30%
-        );
-}
+                            <i class="fa-solid fa-envelope"></i>
 
-.hero-container {
-    display: grid;
+                        </a>
 
-    grid-template-columns: 1.2fr 0.8fr;
+                        <a
+                            href="https://wa.me/628961702404"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp">
 
-    gap: 80px;
+                            <i class="fa-brands fa-whatsapp"></i>
 
-    align-items: center;
+                        </a>
 
-    padding-top: 75px;
-}
+                    </div>
 
-.hero-label,
-.section-label {
-    display: inline-block;
+                </div>
 
-    margin-bottom: 15px;
 
-    color: #38bdf8;
+                <!-- PROFILE CARD -->
 
-    font-size: 0.75rem;
-    font-weight: 700;
+                <div class="profile-card">
 
-    letter-spacing: 3px;
-}
+                    <div class="profile-circle">
+                        MYW
+                    </div>
 
-.hero h1 {
-    max-width: 750px;
+                    <p class="profile-label">
+                        DIGITAL ADMINISTRATION
+                    </p>
 
-    font-size: clamp(3rem, 6vw, 5.5rem);
+                    <h2>
+                        Data & Administration
+                    </h2>
 
-    line-height: 1.02;
+                    <p class="profile-description">
+                        Building practical skills in data management,
+                        analytics, office administration, and digital tools.
+                    </p>
 
-    letter-spacing: -4px;
+                    <div class="profile-stats">
 
-    font-weight: 800;
-}
+                        <div>
+                            <strong>3.71</strong>
+                            <span>GPA</span>
+                        </div>
 
-.hero h1 span {
-    display: block;
-    color: #38bdf8;
-}
+                        <div>
+                            <strong>90+</strong>
+                            <span>Archive Boxes</span>
+                        </div>
 
-.typing-wrapper {
-    margin-top: 25px;
+                        <div>
+                            <strong>2</strong>
+                            <span>Internship Roles</span>
+                        </div>
 
-    min-height: 35px;
+                    </div>
 
-    font-size: 1.25rem;
-    font-weight: 600;
+                </div>
 
-    color: #cbd5e1;
-}
+            </div>
 
-.cursor {
-    color: #38bdf8;
+            <a href="#about" class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
 
-    animation: blink 0.8s infinite;
-}
+        </section>
 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-}
 
-.hero-description {
-    max-width: 650px;
+        <!-- =========================
+             ABOUT
+        ========================== -->
 
-    margin-top: 25px;
+        <section id="about" class="section">
 
-    color: #94a3b8;
+            <div class="container">
 
-    font-size: 1rem;
-}
+                <div class="section-heading">
 
-.hero-buttons {
-    display: flex;
+                    <p class="eyebrow">
+                        ABOUT ME
+                    </p>
 
-    gap: 15px;
+                    <h2>
+                        Digital administration with a growing focus on data.
+                    </h2>
 
-    margin-top: 35px;
-}
+                </div>
 
-.btn {
-    display: inline-flex;
 
-    align-items: center;
-    justify-content: center;
+                <div class="about-grid">
 
-    min-height: 48px;
+                    <div class="about-text">
 
-    padding: 0 24px;
+                        <p>
+                            I am a D4 Digital Office Administration student
+                            at Universitas Negeri Jakarta with an interest
+                            in combining administrative skills with digital
+                            tools and data.
+                        </p>
 
-    border-radius: 10px;
+                        <p>
+                            Through academic projects, internships, and
+                            organizational activities, I have developed
+                            experience in document management, data entry,
+                            archive management, data analysis, and event
+                            coordination.
+                        </p>
 
-    font-size: 0.85rem;
-    font-weight: 700;
+                        <p>
+                            I am currently developing my data analyst skills
+                            through Python, SQL, Pandas, Matplotlib, and
+                            data visualization while continuing to strengthen
+                            my administrative and HR support capabilities.
+                        </p>
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
-}
+                    </div>
 
-.btn:hover {
-    transform: translateY(-3px);
-}
 
-.btn-primary {
-    background: #38bdf8;
-    color: #0b1120;
+                    <div class="about-info">
 
-    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
-}
+                        <div class="info-item">
+                            <span>Education</span>
+                            <strong>
+                                D4 Administrasi Perkantoran Digital
+                            </strong>
+                        </div>
 
-.btn-primary:hover {
-    box-shadow: 0 15px 40px rgba(56, 189, 248, 0.3);
-}
+                        <div class="info-item">
+                            <span>University</span>
+                            <strong>
+                                Universitas Negeri Jakarta
+                            </strong>
+                        </div>
 
-.btn-secondary {
-    border: 1px solid #334155;
+                        <div class="info-item">
+                            <span>GPA</span>
+                            <strong>3.71 / 4.00</strong>
+                        </div>
 
-    color: #f8fafc;
+                        <div class="info-item">
+                            <span>Location</span>
+                            <strong>Jakarta, Indonesia</strong>
+                        </div>
 
-    background: rgba(30, 41, 59, 0.4);
-}
+                    </div>
 
-.btn-secondary:hover {
-    border-color: #38bdf8;
-    color: #38bdf8;
-}
+                </div>
 
-.social-links {
-    display: flex;
+            </div>
 
-    gap: 20px;
+        </section>
 
-    margin-top: 30px;
-}
 
-.social-links a {
-    color: #64748b;
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
 
-    font-size: 0.8rem;
-    font-weight: 600;
+        <section id="experience" class="section section-dark">
 
-    transition: color 0.3s ease;
-}
+            <div class="container">
 
-.social-links a:hover {
-    color: #38bdf8;
-}
+                <div class="section-heading">
 
+                    <p class="eyebrow">
+                        EXPERIENCE
+                    </p>
 
-/* =========================================================
-   PROFILE CARD
-========================================================= */
+                    <h2>
+                        Practical experience in administration, data, and events.
+                    </h2>
 
-.hero-card {
-    display: flex;
-    justify-content: center;
-}
+                </div>
 
-.profile-card {
-    width: 100%;
-    max-width: 370px;
 
-    padding: 40px;
+                <div class="experience-list">
 
-    position: relative;
 
-    border: 1px solid rgba(148, 163, 184, 0.12);
-    border-radius: 25px;
+                    <!-- EXPERIENCE 1 -->
 
-    background:
-        linear-gradient(
-            145deg,
-            rgba(30, 41, 59, 0.8),
-            rgba(15, 23, 42, 0.8)
-        );
+                    <article class="experience-card">
 
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.3);
+                        <div class="experience-header">
 
-    overflow: hidden;
-}
+                            <div>
+                                <p class="experience-period">
+                                    2026
+                                </p>
 
-.profile-card::before {
-    content: "";
+                                <h3>
+                                    Coordinator of Graphic Design Competition
+                                    & Data Management
+                                </h3>
 
-    position: absolute;
+                                <p class="experience-company">
+                                    OACTION ASPAPI
+                                </p>
+                            </div>
 
-    top: -100px;
-    right: -100px;
+                            <div class="experience-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
 
-    width: 220px;
-    height: 220px;
+                        </div>
 
-    background: rgba(56, 189, 248, 0.12);
+                        <ul>
 
-    border-radius: 50%;
+                            <li>
+                                Coordinated graphic design competition
+                                activities and participant data management.
+                            </li>
 
-    filter: blur(10px);
-}
+                            <li>
+                                Managed 100 online participants,
+                                36 offline participants, and 10 finalists.
+                            </li>
 
-.profile-avatar {
-    width: 100px;
-    height: 100px;
+                            <li>
+                                Created competition SOP and supported
+                                event execution.
+                            </li>
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+                            <li>
+                                Supervised activities and provided feedback
+                                during the event.
+                            </li>
 
-    margin-bottom: 25px;
+                        </ul>
 
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    border-radius: 50%;
+                        <div class="tag-list">
 
-    background: rgba(56, 189, 248, 0.08);
+                            <span>Canva</span>
+                            <span>PowerPoint</span>
+                            <span>Excel</span>
+                            <span>SQL</span>
 
-    color: #38bdf8;
+                        </div>
 
-    font-size: 1.5rem;
-    font-weight: 800;
-}
+                    </article>
 
-.profile-role {
-    color: #38bdf8;
 
-    font-size: 0.75rem;
-    font-weight: 700;
+                    <!-- EXPERIENCE 2 -->
 
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+                    <article class="experience-card">
 
-.profile-card h2 {
-    margin-top: 8px;
+                        <div class="experience-header">
 
-    font-size: 1.5rem;
-}
+                            <div>
 
-.profile-card > p:not(.profile-role) {
-    margin-top: 15px;
+                                <p class="experience-period">
+                                    January – May
+                                </p>
 
-    color: #94a3b8;
+                                <h3>
+                                    Financial Archivist
+                                </h3>
 
-    font-size: 0.9rem;
-}
+                                <p class="experience-company">
+                                    BPJS Ketenagakerjaan
+                                </p>
 
-.profile-stats {
-    display: grid;
+                            </div>
 
-    grid-template-columns: repeat(3, 1fr);
+                            <div class="experience-icon">
+                                <i class="fa-solid fa-box-archive"></i>
+                            </div>
 
-    gap: 15px;
+                        </div>
 
-    margin-top: 30px;
+                        <ul>
 
-    padding-top: 25px;
+                            <li>
+                                Managed and organized 2025 financial archives.
+                            </li>
 
-    border-top: 1px solid rgba(148, 163, 184, 0.1);
-}
+                            <li>
+                                Archived more than 90 boxes of documents.
+                            </li>
 
-.profile-stats div {
-    display: flex;
+                            <li>
+                                Created archive lists to improve document
+                                identification and retrieval.
+                            </li>
 
-    flex-direction: column;
+                        </ul>
 
-    gap: 3px;
-}
+                        <div class="tag-list">
 
-.profile-stats strong {
-    font-size: 1.25rem;
-}
+                            <span>Microsoft Excel</span>
+                            <span>Microsoft Word</span>
+                            <span>Document Management</span>
 
-.profile-stats span {
-    color: #64748b;
+                        </div>
 
-    font-size: 0.65rem;
-}
+                    </article>
 
 
-/* =========================================================
-   SCROLL INDICATOR
-========================================================= */
+                    <!-- EXPERIENCE 3 -->
 
-.scroll-indicator {
-    position: absolute;
+                    <article class="experience-card">
 
-    bottom: 30px;
-    left: 50%;
+                        <div class="experience-header">
 
-    transform: translateX(-50%);
+                            <div>
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+                                <p class="experience-period">
+                                    June – September
+                                </p>
 
-    gap: 5px;
+                                <h3>
+                                    Data Entry Specialist
+                                </h3>
 
-    color: #475569;
+                                <p class="experience-company">
+                                    BPJS Ketenagakerjaan
+                                </p>
 
-    font-size: 0.65rem;
+                            </div>
 
-    letter-spacing: 1px;
-}
+                            <div class="experience-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
 
-.scroll-arrow {
-    color: #38bdf8;
+                        </div>
 
-    font-size: 1rem;
+                        <ul>
 
-    animation: bounce 1.5s infinite;
-}
+                            <li>
+                                Created and verified archives across
+                                five categories in 2025.
+                            </li>
 
-@keyframes bounce {
-    50% {
-        transform: translateY(5px);
-    }
-}
+                            <li>
+                                Managed and verified digital data.
+                            </li>
 
+                            <li>
+                                Created a dashboard to support easier
+                                archive retrieval.
+                            </li>
 
-/* =========================================================
-   SECTION HEADING
-========================================================= */
+                        </ul>
 
-.section-heading {
-    max-width: 750px;
+                        <div class="tag-list">
 
-    margin-bottom: 60px;
-}
+                            <span>Excel</span>
+                            <span>Word</span>
+                            <span>Data Entry</span>
+                            <span>Dashboard</span>
 
-.section-heading h2 {
-    font-size: clamp(2rem, 4vw, 3.5rem);
+                        </div>
 
-    line-height: 1.1;
+                    </article>
 
-    letter-spacing: -2px;
-}
+                </div>
 
-.section-heading h2 span {
-    color: #38bdf8;
-}
+            </div>
 
-.section-heading > p:last-child {
-    max-width: 650px;
+        </section>
 
-    margin-top: 20px;
 
-    color: #94a3b8;
-}
+        <!-- =========================
+             PROJECTS
+        ========================== -->
 
+        <section id="projects" class="section">
 
-/* =========================================================
-   ABOUT
-========================================================= */
+            <div class="container">
 
-.about {
-    background: #0f172a;
-}
+                <div class="section-heading">
 
-.about-grid {
-    display: grid;
+                    <p class="eyebrow">
+                        PROJECTS
+                    </p>
 
-    grid-template-columns: 1.2fr 0.8fr;
+                    <h2>
+                        Projects that turn data into useful information.
+                    </h2>
 
-    gap: 70px;
-}
+                </div>
 
-.about-text {
-    color: #94a3b8;
-}
 
-.about-text p + p {
-    margin-top: 20px;
-}
+                <div class="projects-grid">
 
-.about-info {
-    display: grid;
 
-    gap: 15px;
-}
+                    <article class="project-card">
 
-.info-card {
-    padding: 22px;
+                        <div class="project-number">
+                            01
+                        </div>
 
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 15px;
+                        <div class="project-icon">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
 
-    background: rgba(30, 41, 59, 0.4);
+                        <h3>
+                            Customer Retention Analysis
+                        </h3>
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
+                        <p>
+                            SQL analysis to understand customer activity
+                            and retention cohort patterns.
+                        </p>
 
-.info-card:hover {
-    transform: translateY(-4px);
+                        <div class="tag-list">
+                            <span>SQL</span>
+                            <span>Data Analysis</span>
+                        </div>
 
-    border-color: rgba(56, 189, 248, 0.4);
-}
+                    </article>
 
-.info-card span {
-    display: block;
 
-    margin-bottom: 5px;
+                    <article class="project-card">
 
-    color: #64748b;
+                        <div class="project-number">
+                            02
+                        </div>
 
-    font-size: 0.7rem;
-    font-weight: 700;
+                        <div class="project-icon">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+                        <h3>
+                            Retail Data Analysis
+                        </h3>
 
-.info-card strong {
-    font-size: 1rem;
-}
+                        <p>
+                            Analysis of retail transaction data using
+                            Python, Pandas, and Matplotlib to identify
+                            useful business insights.
+                        </p>
 
-.info-card p {
-    margin-top: 4px;
+                        <div class="tag-list">
+                            <span>Python</span>
+                            <span>Pandas</span>
+                            <span>Matplotlib</span>
+                        </div>
 
-    color: #94a3b8;
+                    </article>
 
-    font-size: 0.8rem;
-}
 
+                    <article class="project-card">
 
-/* =========================================================
-   EXPERIENCE
-========================================================= */
+                        <div class="project-number">
+                            03
+                        </div>
 
-.timeline {
-    position: relative;
+                        <div class="project-icon">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
 
-    max-width: 900px;
+                        <h3>
+                            Excel Data Management
+                        </h3>
 
-    margin: 0 auto;
-}
+                        <p>
+                            Data management exercises using Excel,
+                            Pivot Table, and Power Pivot.
+                        </p>
 
-.timeline::before {
-    content: "";
+                        <div class="tag-list">
+                            <span>Excel</span>
+                            <span>Pivot Table</span>
+                            <span>Power Pivot</span>
+                        </div>
 
-    position: absolute;
+                    </article>
 
-    top: 0;
-    bottom: 0;
 
-    left: 10px;
+                    <article class="project-card">
 
-    width: 1px;
+                        <div class="project-number">
+                            04
+                        </div>
 
-    background: #334155;
-}
+                        <div class="project-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
 
-.timeline-item {
-    position: relative;
+                        <h3>
+                            Data Visualization
+                        </h3>
 
-    padding-left: 55px;
+                        <p>
+                            Data visualization practice using
+                            Matplotlib to communicate patterns and
+                            findings clearly.
+                        </p>
 
-    padding-bottom: 60px;
-}
+                        <div class="tag-list">
+                            <span>Python</span>
+                            <span>Matplotlib</span>
+                            <span>Visualization</span>
+                        </div>
 
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
+                    </article>
 
-.timeline-dot {
-    position: absolute;
+                </div>
 
-    top: 5px;
-    left: 3px;
+            </div>
 
-    width: 15px;
-    height: 15px;
+        </section>
 
-    border: 3px solid #0b1120;
-    border-radius: 50%;
 
-    background: #38bdf8;
+        <!-- =========================
+             SKILLS
+        ========================== -->
 
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
-}
+        <section id="skills" class="section section-dark">
 
-.timeline-content {
-    padding: 30px;
+            <div class="container">
 
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 18px;
+                <div class="section-heading">
 
-    background: rgba(30, 41, 59, 0.35);
+                    <p class="eyebrow">
+                        SKILLS
+                    </p>
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
+                    <h2>
+                        Tools I use and continue to develop.
+                    </h2>
 
-.timeline-content:hover {
-    transform: translateX(5px);
+                </div>
 
-    border-color: rgba(56, 189, 248, 0.35);
-}
 
-.timeline-date {
-    display: inline-block;
+                <div class="skills-grid">
 
-    margin-bottom: 10px;
 
-    color: #38bdf8;
+                    <div class="skill-card">
 
-    font-size: 0.7rem;
-    font-weight: 700;
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+                        <h3>
+                            Data
+                        </h3>
 
-.timeline-content h3 {
-    font-size: 1.25rem;
+                        <p>
+                            Excel · SQL · Python · Pandas ·
+                            Matplotlib · Data Visualization
+                        </p>
 
-    line-height: 1.3;
-}
+                    </div>
 
-.timeline-content h4 {
-    margin-top: 5px;
 
-    color: #64748b;
+                    <div class="skill-card">
 
-    font-size: 0.85rem;
-}
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
 
-.timeline-content > p {
-    margin-top: 15px;
+                        <h3>
+                            Office & Administration
+                        </h3>
 
-    color: #94a3b8;
+                        <p>
+                            Microsoft Word · Excel · PowerPoint ·
+                            Google Docs · Google Sheets
+                        </p>
 
-    font-size: 0.9rem;
-}
+                    </div>
 
-.timeline-content ul {
-    margin-top: 18px;
 
-    padding-left: 20px;
+                    <div class="skill-card">
 
-    color: #94a3b8;
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
 
-    font-size: 0.85rem;
-}
+                        <h3>
+                            Design & Content
+                        </h3>
 
-.timeline-content li + li {
-    margin-top: 8px;
-}
+                        <p>
+                            Canva · Figma · CapCut
+                        </p>
 
+                    </div>
 
-/* =========================================================
-   TAGS
-========================================================= */
 
-.tags,
-.project-tags {
-    display: flex;
+                    <div class="skill-card">
 
-    flex-wrap: wrap;
+                        <div class="skill-icon">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
 
-    gap: 8px;
+                        <h3>
+                            AI Tools
+                        </h3>
 
-    margin-top: 20px;
-}
+                        <p>
+                            ChatGPT · Gemini · Claude
+                        </p>
 
-.tags span,
-.project-tags span {
-    padding: 5px 10px;
+                    </div>
 
-    border: 1px solid rgba(56, 189, 248, 0.15);
-    border-radius: 6px;
+                </div>
 
-    background: rgba(56, 189, 248, 0.06);
+            </div>
 
-    color: #7dd3fc;
+        </section>
 
-    font-size: 0.65rem;
-    font-weight: 600;
-}
 
+        <!-- =========================
+             CERTIFICATIONS
+        ========================== -->
 
-/* =========================================================
-   PROJECTS
-========================================================= */
+        <section id="certifications" class="section">
 
-.projects {
-    background: #0f172a;
-}
+            <div class="container">
 
-.project-grid {
-    display: grid;
+                <div class="section-heading">
 
-    grid-template-columns: repeat(2, 1fr);
+                    <p class="eyebrow">
+                        CERTIFICATIONS
+                    </p>
 
-    gap: 20px;
-}
+                    <h2>
+                        Learning through certification.
+                    </h2>
 
-.project-card {
-    min-height: 310px;
+                    <p>
+                        Certifications I have completed and competencies
+                        I am currently developing.
+                    </p>
 
-    padding: 30px;
+                </div>
 
-    position: relative;
 
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 20px;
+                <h3 class="subsection-title">
+                    Completed Certifications
+                </h3>
 
-    background: rgba(30, 41, 59, 0.35);
 
-    overflow: hidden;
+                <div class="certification-grid">
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
+                    <div class="certification-card">
+                        <span class="cert-provider">MySkill</span>
+                        <h3>Excel Basic</h3>
+                        <p>Certification</p>
+                    </div>
 
-.project-card:hover {
-    transform: translateY(-7px);
+                    <div class="certification-card">
+                        <span class="cert-provider">MySkill</span>
+                        <h3>Excel Intermediate</h3>
+                        <p>Certification</p>
+                    </div>
 
-    border-color: rgba(56, 189, 248, 0.4);
-}
+                    <div class="certification-card">
+                        <span class="cert-provider">MySkill</span>
+                        <h3>Excel Expert</h3>
+                        <p>Certification</p>
+                    </div>
 
-.project-number {
-    position: absolute;
+                    <div class="certification-card">
+                        <span class="cert-provider">MySkill</span>
+                        <h3>Excel Pivot Table</h3>
+                        <p>Certification</p>
+                    </div>
 
-    top: 25px;
-    right: 25px;
+                    <div class="certification-card">
+                        <span class="cert-provider">MySkill</span>
+                        <h3>Excel Power Pivot</h3>
+                        <p>Certification</p>
+                    </div>
 
-    color: #334155;
+                </div>
 
-    font-size: 0.8rem;
-    font-weight: 800;
-}
 
-.project-icon {
-    width: 55px;
-    height: 55px;
+                <div class="learning-card">
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+                    <div class="learning-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
 
-    margin-bottom: 30px;
+                    <div>
 
-    border-radius: 12px;
+                        <span class="cert-provider">
+                            CURRENTLY PURSUING
+                        </span>
 
-    background: rgba(56, 189, 248, 0.08);
+                        <h3>
+                            BNSP Data Analyst
+                        </h3>
 
-    color: #38bdf8;
+                        <p>
+                            Currently developing data analyst competencies
+                            through structured learning in Python for Data
+                            Analyst, SQL, Pandas, Matplotlib, and Data
+                            Visualization through DQLab.
+                        </p>
 
-    font-size: 0.8rem;
-    font-weight: 800;
-}
+                    </div>
 
-.project-card h3 {
-    font-size: 1.2rem;
-}
+                </div>
 
-.project-card > p {
-    margin-top: 12px;
+            </div>
 
-    color: #94a3b8;
+        </section>
 
-    font-size: 0.85rem;
-}
 
+        <!-- =========================
+             CAREER DIRECTION
+        ========================== -->
 
-/* =========================================================
-   SKILLS
-========================================================= */
+        <section class="section section-dark">
 
-.skills-grid {
-    display: grid;
+            <div class="container">
 
-    grid-template-columns: repeat(2, 1fr);
+                <div class="career-card">
 
-    gap: 20px;
-}
+                    <div>
 
-.skill-card {
-    padding: 30px;
+                        <p class="eyebrow">
+                            CAREER DIRECTION
+                        </p>
 
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 20px;
+                        <h2>
+                            Ready to grow through meaningful work.
+                        </h2>
 
-    background: rgba(30, 41, 59, 0.35);
+                        <p>
+                            I am interested in entry-level opportunities
+                            in administration, data analysis, HR support,
+                            and related roles where I can combine
+                            organizational skills with digital tools and data.
+                        </p>
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
+                    </div>
 
-.skill-card:hover {
-    transform: translateY(-5px);
+                    <a href="#contact" class="button button-primary">
+                        Let's Connect
+                    </a>
 
-    border-color: rgba(56, 189, 248, 0.35);
-}
+                </div>
 
-.skill-header {
-    display: flex;
+            </div>
 
-    align-items: center;
+        </section>
 
-    gap: 15px;
 
-    padding-bottom: 20px;
+        <!-- =========================
+             CONTACT
+        ========================== -->
 
-    border-bottom: 1px solid rgba(148, 163, 184, 0.08);
-}
+        <section id="contact" class="section">
 
-.skill-icon {
-    width: 45px;
-    height: 45px;
+            <div class="container">
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+                <div class="section-heading center">
 
-    border-radius: 10px;
+                    <p class="eyebrow">
+                        CONTACT
+                    </p>
 
-    background: rgba(56, 189, 248, 0.08);
+                    <h2>
+                        Let's connect.
+                    </h2>
 
-    color: #38bdf8;
+                    <p>
+                        Feel free to reach out for opportunities,
+                        collaboration, or professional discussions.
+                    </p>
 
-    font-size: 0.6rem;
-    font-weight: 800;
-}
+                </div>
 
-.skill-header h3 {
-    font-size: 1rem;
-}
 
-.skill-list {
-    margin-top: 20px;
-}
+                <div class="contact-grid">
 
-.skill-item {
-    display: flex;
 
-    justify-content: space-between;
-    align-items: center;
+                    <a
+                        href="mailto:muhamadyudhawaningpati@gmail.com"
+                        class="contact-card">
 
-    padding: 11px 0;
+                        <i class="fa-solid fa-envelope"></i>
 
-    border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+                        <span>Email</span>
 
-    font-size: 0.8rem;
-}
+                        <strong>
+                            muhamadyudhawaningpati@gmail.com
+                        </strong>
 
-.skill-item:last-child {
-    border-bottom: none;
-}
+                    </a>
 
-.skill-level {
-    color: #38bdf8;
 
-    font-size: 0.65rem;
-    font-weight: 600;
-}
+                    <a
+                        href="https://www.linkedin.com/in/muhamad-yudha-6564141a/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card">
 
-.skill-level.developing {
-    color: #94a3b8;
-}
+                        <i class="fa-brands fa-linkedin-in"></i>
 
+                        <span>LinkedIn</span>
 
-/* =========================================================
-   CERTIFICATIONS
-========================================================= */
+                        <strong>
+                            Muhamad Yudha Waningpati
+                        </strong>
 
-.certification-group + .certification-group {
-    margin-top: 70px;
-}
+                    </a>
 
-.certification-group-title {
-    display: flex;
 
-    align-items: center;
+                    <a
+                        href="https://wa.me/628961702404"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="contact-card">
 
-    gap: 15px;
+                        <i class="fa-brands fa-whatsapp"></i>
 
-    margin-bottom: 25px;
-}
+                        <span>WhatsApp</span>
 
-.certification-group-title > span {
-    color: #38bdf8;
+                        <strong>
+                            +62 896 1702 404
+                        </strong>
 
-    font-size: 0.7rem;
-    font-weight: 800;
-}
+                    </a>
 
-.certification-group-title h3 {
-    font-size: 1.2rem;
-}
+                </div>
 
-.certification-grid {
-    display: grid;
+            </div>
 
-    grid-template-columns: repeat(3, 1fr);
+        </section>
 
-    gap: 15px;
-}
+    </main>
 
-.certification-card {
-    display: flex;
 
-    align-items: center;
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-    gap: 15px;
+    <footer class="footer">
 
-    min-height: 110px;
+        <div class="container">
 
-    padding: 20px;
+            <p>
+                © 2026 Muhamad Yudha Waningpati.
+                All rights reserved.
+            </p>
 
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 15px;
+        </div>
 
-    background: rgba(30, 41, 59, 0.35);
+    </footer>
 
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
 
-.certification-card:hover {
-    transform: translateY(-4px);
+    <script src="script.js"></script>
 
-    border-color: rgba(56, 189, 248, 0.35);
-}
+</body>
 
-.certification-logo {
-    min-width: 45px;
-    height: 45px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background: rgba(56, 189, 248, 0.08);
-
-    color: #38bdf8;
-
-    font-size: 0.7rem;
-    font-weight: 800;
-}
-
-.certification-card h4 {
-    font-size: 0.85rem;
-}
-
-.certification-card p {
-    color: #94a3b8;
-
-    font-size: 0.7rem;
-}
-
-.certification-card span {
-    display: block;
-
-    margin-top: 3px;
-
-    color: #64748b;
-
-    font-size: 0.6rem;
-}
-
-
-/* =========================================================
-   CURRENTLY PURSUING
-========================================================= */
-
-.pursuing-card {
-    position: relative;
-
-    padding: 35px;
-
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(56, 189, 248, 0.08),
-            rgba(30, 41, 59, 0.35)
-        );
-}
-
-.pursuing-badge {
-    display: inline-block;
-
-    margin-bottom: 15px;
-
-    padding: 5px 10px;
-
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    border-radius: 20px;
-
-    color: #38bdf8;
-
-    font-size: 0.6rem;
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-.pursuing-card h3 {
-    font-size: 1.5rem;
-}
-
-.pursuing-card > p {
-    max-width: 700px;
-
-    margin-top: 10px;
-
-    color: #94a3b8;
-
-    font-size: 0.85rem;
-}
-
-.pursuing-note {
-    margin-top: 25px !important;
-
-    font-size: 0.75rem !important;
-
-    color: #64748b !important;
-}
-
-
-/* =========================================================
-   CAREER
-========================================================= */
-
-.career {
-    padding-top: 40px;
-}
-
-.career-card {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 40px;
-
-    padding: 50px;
-
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    border-radius: 25px;
-
-    background:
-        radial-gradient(
-            circle at 80% 50%,
-            rgba(56, 189, 248, 0.1),
-            transparent 40%
-        ),
-        rgba(30, 41, 59, 0.35);
-}
-
-.career-card h2 {
-    max-width: 700px;
-
-    font-size: clamp(1.8rem, 4vw, 3rem);
-
-    line-height: 1.15;
-
-    letter-spacing: -1.5px;
-}
-
-.career-card h2 span {
-    color: #38bdf8;
-}
-
-.career-card > div > p:last-child {
-    max-width: 700px;
-
-    margin-top: 20px;
-
-    color: #94a3b8;
-
-    font-size: 0.9rem;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact {
-    background: #0f172a;
-}
-
-.contact-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.contact-card {
-    min-height: 150px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 25px;
-
-    border: 1px solid rgba(148, 163, 184, 0.1);
-    border-radius: 18px;
-
-    background: rgba(30, 41, 59, 0.35);
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px);
-
-    border-color: rgba(56, 189, 248, 0.4);
-}
-
-.contact-label {
-    color: #64748b;
-
-    font-size: 0.65rem;
-    font-weight: 800;
-
-    letter-spacing: 2px;
-}
-
-.contact-card strong {
-    margin-top: 10px;
-
-    color: #f8fafc;
-
-    font-size: 0.85rem;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-    padding: 25px 0;
-
-    border-top: 1px solid rgba(148, 163, 184, 0.08);
-
-    background: #0b1120;
-}
-
-.footer-container {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.footer p,
-.footer a {
-    color: #475569;
-
-    font-size: 0.7rem;
-}
-
-.footer a:hover {
-    color: #38bdf8;
-}
-
-
-/* =========================================================
-   PARTICLES
-========================================================= */
-
-.particles {
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-
-    width: 3px;
-    height: 3px;
-
-    border-radius: 50%;
-
-    background: #38bdf8;
-
-    opacity: 0.3;
-
-    animation: floatParticle linear infinite;
-}
-
-@keyframes floatParticle {
-
-    0% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 0.3;
-    }
-
-    90% {
-        opacity: 0.3;
-    }
-
-    100% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-
-}
-
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
-.scroll-progress {
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 3px;
-
-    z-index: 2000;
-
-    background: #38bdf8;
-}
-
-
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(30px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   GLOW EFFECT
-========================================================= */
-
-.project-card::after,
-.skill-card::after,
-.certification-card::after,
-.contact-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 100px;
-
-    top: -50px;
-    right: -50px;
-
-    border-radius: 50%;
-
-    background: rgba(56, 189, 248, 0.08);
-
-    filter: blur(30px);
-
-    opacity: 0;
-
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover::after,
-.skill-card:hover::after,
-.certification-card:hover::after,
-.contact-card:hover::after {
-    opacity: 1;
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .nav-menu {
-        position: fixed;
-
-        top: 75px;
-        left: 0;
-
-        width: 100%;
-
-        padding: 25px;
-
-        flex-direction: column;
-        align-items: flex-start;
-
-        background: rgba(11, 17, 32, 0.98);
-
-        border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-
-        transform: translateY(-150%);
-
-        transition: transform 0.3s ease;
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-
-        gap: 60px;
-    }
-
-    .hero {
-        padding-bottom: 100px;
-    }
-
-    .hero-card {
-        justify-content: flex-start;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .career-card {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .certification-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .section {
-        padding: 80px 0;
-    }
-
-    .container {
-        width: min(92%, 1120px);
-    }
-
-    .hero {
-        min-height: auto;
-
-        padding-top: 120px;
-        padding-bottom: 80px;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-
-        letter-spacing: -2px;
-    }
-
-    .typing-wrapper {
-        font-size: 1rem;
-    }
-
-    .hero-description {
-        font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: stretch;
-    }
-
-    .btn {
-        width: 100%;
-    }
-
-    .social-links {
-        flex-wrap: wrap;
-    }
-
-    .profile-card {
-        padding: 30px;
-    }
-
-    .profile-stats {
-        gap: 8px;
-    }
-
-    .section-heading {
-        margin-bottom: 40px;
-    }
-
-    .section-heading h2 {
-        font-size: 2.2rem;
-
-        letter-spacing: -1px;
-    }
-
-    .timeline-item {
-        padding-left: 35px;
-    }
-
-    .timeline::before {
-        left: 7px;
-    }
-
-    .timeline-dot {
-        left: 0;
-    }
-
-    .timeline-content {
-        padding: 22px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .certification-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .career-card {
-        padding: 30px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
-}
+</html>
