@@ -327,3 +327,158 @@ body{
     transform:translateY(-5px);
 
 }
+
+.timeline{
+
+    max-width:900px;
+    margin:auto;
+    position:relative;
+
+}
+
+.timeline::before{
+
+    content:"";
+    position:absolute;
+    left:20px;
+    width:2px;
+    height:100%;
+    background:rgba(255,255,255,.1);
+
+}
+
+.timeline-item{
+
+    padding-left:70px;
+    margin-bottom:50px;
+    position:relative;
+
+}
+
+.timeline-dot{
+
+    width:20px;
+    height:20px;
+    background:var(--primary);
+    border-radius:50%;
+    position:absolute;
+    left:11px;
+    top:10px;
+
+    box-shadow:
+    0 0 15px var(--primary);
+
+}
+
+.timeline-date{
+
+    color:var(--primary);
+    font-weight:600;
+    margin-bottom:10px;
+
+}
+
+.timeline-content{
+
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    transition:.4s ease;
+
+}
+
+.timeline-content:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.timeline-subtitle{
+
+    color:var(--gray);
+    margin:10px 0 20px;
+
+}
+
+.timeline-tasks{
+
+    padding-left:20px;
+    line-height:1.8;
+    color:var(--gray);
+
+}
+
+.skills-grid{
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.skill-card{
+
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s ease;
+
+}
+
+.skill-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.skill-card i{
+
+    font-size:40px;
+    color:var(--primary);
+    margin-bottom:20px;
+
+}
+
+
+.motivation-content{
+
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    line-height:2;
+    color:var(--gray);
+    font-size:18px;
+
+}
+
+
+.contact-cards{
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.contact-card{
+
+    background:var(--card);
+    padding:30px;
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+    text-align:center;
+    transition:.4s ease;
+
+}
+
+.contact-card:hover{
+
+    transform:translateY(-10px);
+
+}
