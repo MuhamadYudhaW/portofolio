@@ -1991,3 +1991,35 @@ h3 {
     }
 
 }
+
+/* =========================
+   CERTIFICATION SPACING
+========================= */
+
+.certification-section {
+    margin-top: 0;
+}
+
+.certification-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.35rem;
+    line-height: 1.2;
+    margin: 0 0 22px;
+}
+
+.pursuing-section {
+    margin-top: 55px;
+}
+
+@media (max-width: 760px) {
+
+    .certification-title {
+        font-size: 1.2rem;
+        margin-bottom: 18px;
+    }
+
+    .pursuing-section {
+        margin-top: 42px;
+    }
+
+}
