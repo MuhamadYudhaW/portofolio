@@ -1,445 +1,788 @@
-// =========================
-// TYPING EFFECT
-// =========================
+/* =========================================================
+   TYPING EFFECT
+========================================================= */
 
-const texts = [
+const typingText = document.getElementById("typingText");
 
-    "Digital Office Administration Student",
-
-    "Data Management Enthusiast",
-
-    "Technology & Design Enthusiast",
-
-    "Future Professional Worker"
-
+const typingWords = [
+    "Digital Administration",
+    "Data Management",
+    "Data Analysis",
+    "HR Support",
+    "Technology & Design"
 ];
 
-let speed = 100;
-let textIndex = 0;
+let wordIndex = 0;
 let charIndex = 0;
+let isDeleting = false;
 
-const typingText =
-document.querySelector(".typing-text");
+const typingSpeed = 90;
+const deletingSpeed = 50;
+const pauseAfterTyping = 1800;
+const pauseAfterDeleting = 500;
 
-function typeEffect(){
 
-    if(charIndex < texts[textIndex].length){
+function typeEffect() {
 
-        typingText.textContent +=
-        texts[textIndex].charAt(charIndex);
+    if (!typingText) return;
+
+    const currentWord = typingWords[wordIndex];
+
+    if (!isDeleting) {
+
+        typingText.textContent =
+            currentWord.substring(0, charIndex + 1);
 
         charIndex++;
 
-        setTimeout(typeEffect, speed);
+        if (charIndex === currentWord.length) {
 
-    }else{
+            isDeleting = true;
 
-        setTimeout(eraseEffect, 1500);
+            setTimeout(
+                typeEffect,
+                pauseAfterTyping
+            );
 
-    }
+            return;
+        }
 
-}
-
-function eraseEffect(){
-
-    if(charIndex > 0){
+    } else {
 
         typingText.textContent =
-        texts[textIndex].substring(0, charIndex - 1);
+            currentWord.substring(0, charIndex - 1);
 
         charIndex--;
 
-        setTimeout(eraseEffect, 50);
+        if (charIndex === 0) {
 
-    }else{
+            isDeleting = false;
 
-        textIndex++;
+            wordIndex++;
 
-        if(textIndex >= texts.length){
+            if (wordIndex >= typingWords.length) {
+                wordIndex = 0;
+            }
 
-            textIndex = 0;
+            setTimeout(
+                typeEffect,
+                pauseAfterDeleting
+            );
 
+            return;
         }
-
-        setTimeout(typeEffect, 500);
-
     }
 
+    setTimeout(
+        typeEffect,
+        isDeleting ? deletingSpeed : typingSpeed
+    );
 }
+
+
+/* Jalankan typing effect */
 
 document.addEventListener(
-"DOMContentLoaded",
+    "DOMContentLoaded",
+    () => {
+        typeEffect();
+    }
+);
 
-function(){
 
-    if(texts.length){
+/* =========================================================
+   NAVBAR SCROLL EFFECT
+========================================================= */
 
-        setTimeout(typeEffect, 500);
+const navbar = document.getElementById("navbar");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!navbar) return;
+
+        if (window.scrollY > 50) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+
+if (menuToggle && navMenu) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            navMenu.classList.toggle("active");
+
+        }
+    );
+
+}
+
+
+/* Tutup menu setelah memilih menu */
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+navLinks.forEach(
+    (link) => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                if (navMenu) {
+                    navMenu.classList.remove("active");
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   REVEAL ON SCROLL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                (entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("show");
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(
+    (element) => {
+
+        revealObserver.observe(element);
+
+    }
+);
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+const scrollProgress =
+    document.getElementById("scrollProgress");
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!scrollProgress) return;
+
+        const scrollTop =
+            window.scrollY;
+
+        const documentHeight =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const scrollPercentage =
+            documentHeight > 0
+                ? (scrollTop / documentHeight) * 100
+                : 0;
+
+        scrollProgress.style.width =
+            `${scrollPercentage}%`;
+
+    }
+);
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+function updateActiveNavigation() {
+
+    const scrollPosition =
+        window.scrollY + 150;
+
+    let currentSection = "";
+
+    sections.forEach(
+        (section) => {
+
+            const sectionTop =
+                section.offsetTop;
+
+            const sectionHeight =
+                section.offsetHeight;
+
+            if (
+                scrollPosition >= sectionTop &&
+                scrollPosition <
+                    sectionTop + sectionHeight
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        }
+    );
+
+
+    navLinks.forEach(
+        (link) => {
+
+            link.classList.remove("active");
+
+            const href =
+                link.getAttribute("href");
+
+            if (
+                href === `#${currentSection}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNavigation
+);
+
+
+/* Jalankan sekali saat halaman dibuka */
+
+updateActiveNavigation();
+
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(
+        (link) => {
+
+            link.addEventListener(
+                "click",
+                function (event) {
+
+                    const targetId =
+                        this.getAttribute("href");
+
+                    const target =
+                        document.querySelector(targetId);
+
+                    if (!target) return;
+
+                    event.preventDefault();
+
+                    const navbarHeight =
+                        navbar
+                            ? navbar.offsetHeight
+                            : 0;
+
+                    const targetPosition =
+                        target.offsetTop -
+                        navbarHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: "smooth"
+                    });
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   PARTICLE BACKGROUND
+========================================================= */
+
+const particlesContainer =
+    document.querySelector(".particles");
+
+
+function createParticles() {
+
+    if (!particlesContainer) return;
+
+    const particleCount =
+        window.innerWidth < 600
+            ? 20
+            : 40;
+
+
+    for (
+        let i = 0;
+        i < particleCount;
+        i++
+    ) {
+
+        const particle =
+            document.createElement("span");
+
+        particle.classList.add("particle");
+
+
+        /* Posisi horizontal random */
+
+        particle.style.left =
+            `${Math.random() * 100}%`;
+
+
+        /* Durasi animasi random */
+
+        particle.style.animationDuration =
+            `${8 + Math.random() * 12}s`;
+
+
+        /* Delay random */
+
+        particle.style.animationDelay =
+            `${Math.random() * 10}s`;
+
+
+        /* Ukuran random */
+
+        const size =
+            2 + Math.random() * 3;
+
+        particle.style.width =
+            `${size}px`;
+
+        particle.style.height =
+            `${size}px`;
+
+
+        particlesContainer.appendChild(
+            particle
+        );
 
     }
 
-});
+}
 
-// =========================
-// NAVBAR EFFECT
-// =========================
 
-window.addEventListener("scroll",
+createParticles();
 
-function(){
 
-    const navbar =
-    document.querySelector(".navbar");
+/* =========================================================
+   CARD MOUSE GLOW
+========================================================= */
 
-    navbar.classList.toggle(
-        "scrolled",
-        window.scrollY > 50
+const glowCards =
+    document.querySelectorAll(
+        ".project-card, .skill-card, .certification-card, .contact-card"
     );
 
-});
 
-// =========================
-// HAMBURGER MENU
-// =========================
+glowCards.forEach(
+    (card) => {
 
-const hamburger =
-document.querySelector(".hamburger");
+        card.addEventListener(
+            "mousemove",
+            (event) => {
 
-const navLinks =
-document.querySelector(".nav-links");
+                const rect =
+                    card.getBoundingClientRect();
 
-hamburger.addEventListener("click",
+                const x =
+                    event.clientX -
+                    rect.left;
 
-()=>{
+                const y =
+                    event.clientY -
+                    rect.top;
 
-    navLinks.classList.toggle("active");
 
-});
+                card.style.background =
+                    `
+                    radial-gradient(
+                        300px circle at ${x}px ${y}px,
+                        rgba(56, 189, 248, 0.08),
+                        rgba(30, 41, 59, 0.35)
+                    )
+                    `;
 
-// =========================
-// CLOSE MENU MOBILE
-// =========================
+            }
+        );
 
-document.querySelectorAll(".nav-links a")
-.forEach(link => {
 
-    link.addEventListener("click",
+        card.addEventListener(
+            "mouseleave",
+            () => {
 
-    ()=>{
+                card.style.background =
+                    "rgba(30, 41, 59, 0.35)";
 
-        navLinks.classList.remove("active");
+            }
+        );
 
-    });
-
-});
-
-// =========================
-// REVEAL ANIMATION
-// =========================
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-
-    reveals.forEach(item => {
-
-        const windowHeight =
-        window.innerHeight;
-
-        const revealTop =
-        item.getBoundingClientRect().top;
-
-        if(revealTop < windowHeight - 100){
-
-            item.style.opacity = "1";
-
-            item.style.transform =
-            "translateY(0)";
-
-        }
-
-    });
-
-}
-
-reveals.forEach(item => {
-
-    item.style.opacity = "0";
-
-    item.style.transform =
-    "translateY(70px)";
-
-    item.style.transition =
-    "all .8s ease";
-
-});
-
-window.addEventListener(
-"scroll",
-revealOnScroll
+    }
 );
 
-revealOnScroll();
 
-// =========================
-// BUTTON MAGNET EFFECT
-// =========================
+/* =========================================================
+   BUTTON RIPPLE EFFECT
+========================================================= */
 
 const buttons =
-document.querySelectorAll(".btn");
+    document.querySelectorAll(".btn");
 
-buttons.forEach(button => {
 
-    button.addEventListener("mousemove",
+buttons.forEach(
+    (button) => {
 
-    function(e){
+        button.addEventListener(
+            "click",
+            function (event) {
 
-        const position =
-        button.getBoundingClientRect();
+                const ripple =
+                    document.createElement("span");
 
-        const x =
-        e.clientX - position.left -
-        position.width / 2;
+                const rect =
+                    button.getBoundingClientRect();
 
-        const y =
-        e.clientY - position.top -
-        position.height / 2;
 
-        button.style.transform =
-        `translate(${x * 0.15}px,
-        ${y * 0.25}px)`;
+                const size =
+                    Math.max(
+                        rect.width,
+                        rect.height
+                    );
 
-    });
 
-    button.addEventListener("mouseleave",
+                const x =
+                    event.clientX -
+                    rect.left -
+                    size / 2;
 
-    function(){
+                const y =
+                    event.clientY -
+                    rect.top -
+                    size / 2;
 
-        button.style.transform =
-        "translate(0px,0px)";
 
-        button.style.transition =
-        ".4s ease";
+                ripple.style.position =
+                    "absolute";
 
-    });
+                ripple.style.width =
+                    `${size}px`;
 
-});
+                ripple.style.height =
+                    `${size}px`;
 
-// =========================
-// BUTTON RIPPLE EFFECT
-// =========================
+                ripple.style.left =
+                    `${x}px`;
 
-buttons.forEach(button => {
+                ripple.style.top =
+                    `${y}px`;
 
-    button.addEventListener("click",
+                ripple.style.borderRadius =
+                    "50%";
 
-    function(e){
+                ripple.style.background =
+                    "rgba(255, 255, 255, 0.2)";
 
-        let ripple =
-        document.createElement("span");
+                ripple.style.transform =
+                    "scale(0)";
 
-        ripple.classList.add("ripple");
+                ripple.style.pointerEvents =
+                    "none";
 
-        this.appendChild(ripple);
+                ripple.style.animation =
+                    "buttonRipple 0.6s linear";
 
-        const x =
-        e.clientX -
-        e.target.getBoundingClientRect().left;
 
-        const y =
-        e.clientY -
-        e.target.getBoundingClientRect().top;
+                button.style.position =
+                    "relative";
 
-        ripple.style.left = `${x}px`;
+                button.style.overflow =
+                    "hidden";
 
-        ripple.style.top = `${y}px`;
 
-        setTimeout(()=>{
+                button.appendChild(
+                    ripple
+                );
 
-            ripple.remove();
 
-        },600);
+                setTimeout(
+                    () => {
 
-    });
+                        ripple.remove();
 
-});
+                    },
+                    600
+                );
 
-// =========================
-// FLOATING PARTICLES
-// =========================
+            }
+        );
 
-const hero =
-document.querySelector(".hero");
+    }
+);
 
-for(let i = 0; i < 25; i++){
 
-    let particle =
-    document.createElement("span");
+/* =========================================================
+   BUTTON RIPPLE ANIMATION
+========================================================= */
 
-    particle.classList.add("particle");
+const rippleStyle =
+    document.createElement("style");
 
-    hero.appendChild(particle);
+rippleStyle.textContent = `
 
-    let size =
-    Math.random() * 6 + 2;
+    @keyframes buttonRipple {
 
-    particle.style.width =
-    `${size}px`;
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
 
-    particle.style.height =
-    `${size}px`;
+    }
 
-    particle.style.left =
-    `${Math.random() * 100}%`;
+`;
 
-    particle.style.animationDuration =
-    `${Math.random() * 10 + 5}s`;
+document.head.appendChild(
+    rippleStyle
+);
 
-    particle.style.animationDelay =
-    `${Math.random() * 5}s`;
+
+/* =========================================================
+   MAGNETIC BUTTON EFFECT
+========================================================= */
+
+const magneticButtons =
+    document.querySelectorAll(
+        ".btn-primary"
+    );
+
+
+magneticButtons.forEach(
+    (button) => {
+
+        button.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    button.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left -
+                    rect.width / 2;
+
+                const y =
+                    event.clientY -
+                    rect.top -
+                    rect.height / 2;
+
+
+                button.style.transform =
+                    `
+                    translate(
+                        ${x * 0.08}px,
+                        ${y * 0.08}px
+                    )
+                    `;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "mouseleave",
+            () => {
+
+                button.style.transform =
+                    "translate(0, 0)";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PROFILE CARD PARALLAX
+========================================================= */
+
+const profileCard =
+    document.querySelector(".profile-card");
+
+
+if (profileCard) {
+
+    document.addEventListener(
+        "mousemove",
+        (event) => {
+
+            if (
+                window.innerWidth < 900
+            ) {
+                return;
+            }
+
+
+            const x =
+                (window.innerWidth / 2 -
+                event.clientX) / 60;
+
+            const y =
+                (window.innerHeight / 2 -
+                event.clientY) / 60;
+
+
+            profileCard.style.transform =
+                `
+                perspective(1000px)
+                rotateY(${x}deg)
+                rotateX(${y}deg)
+                `;
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseleave",
+        () => {
+
+            profileCard.style.transform =
+                "perspective(1000px) rotateY(0) rotateX(0)";
+
+        }
+    );
 
 }
 
-// =========================
-// PARALLAX EFFECT
-// =========================
 
-window.addEventListener("mousemove",
+/* =========================================================
+   ESC KEY — CLOSE MOBILE MENU
+========================================================= */
 
-function(e){
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    const heroBg =
-    document.querySelector(".hero-bg");
+        if (
+            event.key === "Escape" &&
+            navMenu
+        ) {
 
-    let x =
-    (window.innerWidth / 2 - e.pageX) / 40;
+            navMenu.classList.remove(
+                "active"
+            );
 
-    let y =
-    (window.innerHeight / 2 - e.pageY) / 40;
+        }
 
-    heroBg.style.transform =
-    `translate(${x}px, ${y}px)`;
-
-});
-
-// =========================
-// SCROLL PROGRESS BAR
-// =========================
-
-const progressBar =
-document.createElement("div");
-
-progressBar.classList.add("progress-bar");
-
-document.body.appendChild(progressBar);
-
-window.addEventListener("scroll",
-
-()=>{
-
-    const scroll =
-    document.documentElement.scrollTop;
-
-    const height =
-    document.documentElement.scrollHeight -
-    document.documentElement.clientHeight;
-
-    const progress =
-    (scroll / height) * 100;
-
-    progressBar.style.width =
-    `${progress}%`;
-
-});
-
-// =========================
-// GLOW EFFECT CARD
-// =========================
-
-const cards =
-document.querySelectorAll(
-".skill-card, .timeline-content, .contact-card"
+    }
 );
 
-cards.forEach(card => {
 
-    card.addEventListener("mousemove",
+/* =========================================================
+   RESIZE HANDLER
+========================================================= */
 
-    function(e){
+window.addEventListener(
+    "resize",
+    () => {
 
-        const rect =
-        card.getBoundingClientRect();
+        /*
+         * Reload particles agar jumlahnya
+         * menyesuaikan ukuran layar.
+         */
 
-        const x =
-        e.clientX - rect.left;
+        if (
+            window.innerWidth < 600 &&
+            particlesContainer
+        ) {
 
-        const y =
-        e.clientY - rect.top;
+            particlesContainer.innerHTML = "";
 
-        card.style.background =
-        `radial-gradient(
-            circle at ${x}px ${y}px,
-            rgba(56,189,248,0.25),
-            #1e293b 40%
-        )`;
-
-    });
-
-    card.addEventListener("mouseleave",
-
-    function(){
-
-        card.style.background =
-        "#1e293b";
-
-    });
-
-});
-
-// =========================
-// SMOOTH ACTIVE NAVBAR
-// =========================
-
-const sections =
-document.querySelectorAll("section");
-
-const navItems =
-document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",
-
-()=>{
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-        section.offsetTop;
-
-        if(pageYOffset >= sectionTop - 200){
-
-            current =
-            section.getAttribute("id");
+            createParticles();
 
         }
 
-    });
+    }
+);
 
-    navItems.forEach(a => {
 
-        a.classList.remove("active");
+/* =========================================================
+   CONSOLE MESSAGE
+========================================================= */
 
-        if(
-            a.getAttribute("href")
-            === `#${current}`
-        ){
+console.log(
+    "%cMuhamad Yudha Waningpati Portfolio",
+    "color:#38bdf8;font-size:18px;font-weight:bold;"
+);
 
-            a.classList.add("active");
-
-        }
-
-    });
-
-});
+console.log(
+    "Digital Administration | Data Management | Data Analysis | HR Support"
+);
