@@ -170,3 +170,60 @@ document.addEventListener("keydown", event => {
     }
 
 });
+// ===============================
+// TYPING TEXT ANIMATION
+// ===============================
+
+const typingText = document.getElementById("typing-text");
+
+const words = [
+    "Digital Administration",
+    "Data Management",
+    "Data Analysis",
+    "HR Support",
+    "Technology & Design"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeEffect() {
+    const currentWord = words[wordIndex];
+
+    if (!isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            isDeleting = true;
+
+            setTimeout(typeEffect, 1800);
+            return;
+        }
+
+        setTimeout(typeEffect, 80);
+
+    } else {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+            isDeleting = false;
+            wordIndex++;
+
+            if (wordIndex === words.length) {
+                wordIndex = 0;
+            }
+
+            setTimeout(typeEffect, 400);
+            return;
+        }
+
+        setTimeout(typeEffect, 45);
+    }
+}
+
+if (typingText) {
+    typeEffect();
+}
