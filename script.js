@@ -39,70 +39,88 @@ navLinks.forEach(link => {
    TYPING EFFECT
 ========================================= */
 
-const typingText = document.getElementById("typing-text");
+document.addEventListener("DOMContentLoaded", function () {
 
-const roles = [
-    "Digital Administration",
-    "Data Management",
-    "Data Analysis",
-    "HR Support"
-];
+    const typingText = document.getElementById("typing-text");
 
-let roleIndex = 0;
-let characterIndex = 0;
-let deleting = false;
-
-
-function typingEffect() {
-
-    if (!typingText) return;
-
-    const currentRole = roles[roleIndex];
-
-    if (!deleting) {
-
-        characterIndex++;
-
-        typingText.textContent =
-            currentRole.substring(0, characterIndex);
-
-        if (characterIndex === currentRole.length) {
-
-            deleting = true;
-
-            setTimeout(typingEffect, 1800);
-
-            return;
-        }
-
-    } else {
-
-        characterIndex--;
-
-        typingText.textContent =
-            currentRole.substring(0, characterIndex);
-
-        if (characterIndex === 0) {
-
-            deleting = false;
-
-            roleIndex++;
-
-            if (roleIndex >= roles.length) {
-                roleIndex = 0;
-            }
-
-        }
-
+    // Pastikan elemen typing memang ditemukan
+    if (!typingText) {
+        console.warn("Elemen #typing-text tidak ditemukan.");
+        return;
     }
 
-    const speed = deleting ? 45 : 85;
+    const words = [
+        "Digital Administration",
+        "Data Management",
+        "Data Analysis",
+        "HR Support",
+        "Technology & Design"
+    ];
 
-    setTimeout(typingEffect, speed);
-}
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
 
-typingEffect();
+    function typeEffect() {
 
+        const currentWord = words[wordIndex];
+
+        if (!deleting) {
+
+            // Menambahkan huruf satu per satu
+            typingText.textContent =
+                currentWord.substring(0, charIndex + 1);
+
+            charIndex++;
+
+            // Kalau sudah selesai mengetik
+            if (charIndex >= currentWord.length) {
+
+                deleting = true;
+
+                // Diam sebentar sebelum menghapus
+                setTimeout(typeEffect, 1800);
+
+                return;
+            }
+
+            // Kecepatan mengetik
+            setTimeout(typeEffect, 80);
+
+        } else {
+
+            // Menghapus huruf satu per satu
+            typingText.textContent =
+                currentWord.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            // Kalau sudah habis
+            if (charIndex <= 0) {
+
+                deleting = false;
+
+                wordIndex++;
+
+                // Kembali ke kata pertama
+                if (wordIndex >= words.length) {
+                    wordIndex = 0;
+                }
+
+                setTimeout(typeEffect, 400);
+
+                return;
+            }
+
+            // Kecepatan menghapus
+            setTimeout(typeEffect, 45);
+        }
+    }
+
+    // Mulai animasi
+    typeEffect();
+
+});
 
 /* =========================================
    ACTIVE NAVIGATION
