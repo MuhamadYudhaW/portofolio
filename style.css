@@ -1356,3 +1356,45 @@ button {
         opacity: 0;
     }
 }
+.hero-role {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    margin: 24px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+#typing-text {
+    display: inline-block;
+    color: #38bdf8;
+    min-width: 1ch;
+}
+
+.typing-cursor {
+    display: inline-block;
+    margin-left: 3px;
+    color: #38bdf8;
+    font-weight: 600;
+    animation: cursorBlink 0.8s ease-in-out infinite;
+}
+
+@keyframes cursorBlink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+@media (max-width: 768px) {
+    .hero-role {
+        font-size: 1.25rem;
+        min-height: 42px;
+        margin: 20px 0;
+    }
+}
