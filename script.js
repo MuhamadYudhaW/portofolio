@@ -191,7 +191,7 @@ document.addEventListener("keydown", event => {
 // ===============================
 // TYPING TEXT ANIMATION
 // ===============================
-
+document.addEventListener("DOMContentLoaded", function () {
 const typingText = document.getElementById("typing-text");
 
 const words = [
